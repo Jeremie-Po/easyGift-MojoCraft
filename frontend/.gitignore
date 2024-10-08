@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
-/frontend/src/graphql/generated/schema.ts
+#/frontend/src/graphql/generated/schema.ts
 
 # testing
 /coverage
@@ -37,4 +37,4 @@ yarn-error.log*
 next-env.d.ts
 
 # codegen
-generated/
+#generated/
