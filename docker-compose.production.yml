@@ -34,7 +34,7 @@ services:
     # build:
     #   context: backend
     #   dockerfile: Dockerfile.production
-    image: crazygift2024/easy-gift-server
+    image: djebamboula/easygift-mojocraft-backend
 
   frontend:
     environment:
@@ -43,7 +43,7 @@ services:
     # build:
     #   context: frontend
     #   dockerfile: Dockerfile.production
-    image: crazygift2024/crazygift-client
+    image: djebamboula/easygift-mojocraft-frontend
 
   gateway:
     stop_grace_period: 0s
