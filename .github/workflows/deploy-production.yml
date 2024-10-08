@@ -47,3 +47,4 @@ jobs:
         uses: wei/curl@master
         with:
           args: https://ops.easygift.mojocraft.fr/hooks/update-production
+
