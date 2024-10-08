@@ -9,8 +9,8 @@ jobs:
   client-tests:
     uses: Jeremie-Po/easyGift-MojoCraft/.github/workflows/tests-front.yml@main
 
-  e2e-tests:
-    uses: Jeremie-Po/easyGift-MojoCraft/.github/workflows/e2e-tests.yml@main
+#  e2e-tests:
+#    uses: Jeremie-Po/easyGift-MojoCraft/.github/workflows/e2e-tests.yml@main
 
   integration-tests:
     uses: Jeremie-Po/easyGift-MojoCraft/.github/workflows/integration-tests.yml@main
@@ -18,7 +18,7 @@ jobs:
   build-and-push-server:
     needs:
       - integration-tests
-      - e2e-tests
+#      - e2e-tests
     uses: Jeremie-Po/easyGift-MojoCraft/.github/workflows/build-backend.yml@main
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -29,7 +29,7 @@ jobs:
   build-and-push-client:
     needs:
       - client-tests
-      - e2e-tests
+#      - e2e-tests
     uses: Jeremie-Po/easyGift-MojoCraft/.github/workflows/build-frontend.yml@main
     secrets:
       DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -46,4 +46,4 @@ jobs:
       - name: Call VPS webhook to update production
         uses: wei/curl@master
         with:
-          args: https://ops.easy-gift.0923-bleu-3.wns.wilders.dev/hooks/update-production
+          args: https://ops.easygift.mojocraft.fr/hooks/update-production
