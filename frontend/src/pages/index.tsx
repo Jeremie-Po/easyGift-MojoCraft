@@ -90,7 +90,7 @@ export default function Home() {
                 </div>
                 <div className='h-auto mb-9 sm:max-w-2xl md:w-2/2 md:max-w-3xl lg:mb-0 lg:max-w-lg 2xl:max-w-2xl'>
                     <h1 className='mb-10 text-4xl md:text-5xl md:mb-14 2xl::text-6xl font-bold text-primaryBlue'>
-                        Easy GifttTtTdfdfdf
+                        Easy Gift
                     </h1>
                     <p className='mb-9 text-lg text-left md:mb-10 md:text-xl 2xl:text-2xl'>
                         Prêt à en finir avec les cadeaux ratés ?
