@@ -12,9 +12,8 @@ function Login() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
     const [login, { data, error }] = useLoginLazyQuery({
         onCompleted: () => {
-            router.push('/')
+            router.push('/').then(() => router.reload())
         },
-        fetchPolicy: 'no-cache',
     })
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
