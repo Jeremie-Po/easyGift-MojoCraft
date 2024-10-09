@@ -189,7 +189,7 @@ class GroupsResolver {
                                 Subject: `Bienvenue sur le groupe ${name} !`,
                                 To: [{ Email: email, Name: name }],
                                 From: {
-                                    Email: 'crazygift24@gmail.com',
+                                    Email: 'mojocraft.contact@gmail.com',
                                     Name: 'Crazy',
                                 },
                                 TextPart: `Bienvenue dans le groupe ${name}, ${ctx.user?.pseudo} vient de t'ajouter au groupe d'échange de cadeau : ${name}.
@@ -230,7 +230,7 @@ class GroupsResolver {
                             Subject: `Bienvenue sur EasyGift ${pseudo}, une action de ta part est requise!`,
                             To: [{ Email: email, Name: name }],
                             From: {
-                                Email: 'crazygift24@gmail.com',
+                                Email: 'mojocraft.contact@gmail.com',
                                 Name: 'Crazy',
                             },
                             TextPart: `Bienvenue sur EasyGift ${pseudo}, ${ctx.user?.pseudo} vient de t'ajouter au groupe d'échange de cadeau : ${name}.
@@ -375,7 +375,7 @@ class GroupsResolver {
                                 Subject: `Bienvenue sur le groupe ${groupToUpdate.name} !`,
                                 To: [{ Email: value, Name: isUser.pseudo }],
                                 From: {
-                                    Email: 'crazygift24@gmail.com',
+                                    Email: 'mojocraft.contact@gmail.com',
                                     Name: 'Crazy',
                                 },
                                 TextPart: `Bienvenue dans le groupe ${groupToUpdate.name}, ${ctx.user?.pseudo} vient de t'ajouter au groupe d'échange de cadeau : ${groupToUpdate.name}.
@@ -418,7 +418,7 @@ class GroupsResolver {
                             Subject: `Bienvenue sur EasyGift ${pseudo}, une action de ta part est requise!`,
                             To: [{ Email: value, Name: newUser.pseudo }],
                             From: {
-                                Email: 'crazygift24@gmail.com',
+                                Email: 'mojocraft.contact@gmail.com',
                                 Name: 'CrazyGift',
                             },
                             TextPart: `Bienvenue sur EasyGift ${pseudo}, ${ctx.user?.pseudo} vient de t'ajouter au groupe d'échange de cadeau : ${groupToUpdate.name}.
