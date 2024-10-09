@@ -14,6 +14,7 @@ function Login() {
         onCompleted: () => {
             router.push('/')
         },
+        fetchPolicy: 'no-cache',
     })
     const [isLoggedIn, setIsLoggedIn] = useState(false)
 
