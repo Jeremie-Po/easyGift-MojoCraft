@@ -12,6 +12,7 @@ function Login() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
     const [login, { data, error }] = useLoginLazyQuery({
         onCompleted: () => {
+            router.reload()
             router.push('/')
         },
     })
