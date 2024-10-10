@@ -12,16 +12,14 @@ function Login() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
     const [login, { data, error }] = useLoginLazyQuery({
         onCompleted: () => {
-            router.push('/').then(() => router.reload())
+            router.push('/')
         },
     })
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     useEffect(() => {
         if (data) {
             if (data.login.success) {
                 toast.success('Connexion réussie!')
-                setIsLoggedIn(true)
             } else {
                 toast.error(
                     'Erreur lors de la connexion: Vérifiez vos informations'
@@ -33,12 +31,6 @@ function Login() {
             toast.error(`Erreur lors de la connexion: ${error.message}`)
         }
     }, [data, error])
-
-    useEffect(() => {
-        if (isLoggedIn) {
-            router.push('/')
-        }
-    }, [isLoggedIn, router])
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
