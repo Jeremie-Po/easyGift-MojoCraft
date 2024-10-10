@@ -2,13 +2,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { InputLogin, useLoginLazyQuery } from '@/graphql/generated/schema'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 
 function Login() {
-    const router = useRouter()
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
     const [login, { data, error }] = useLoginLazyQuery({
         onCompleted: () => {
@@ -57,76 +55,85 @@ function Login() {
     return (
         <>
             <Head>
-                <title>Connexion à mon compte - Easy Gift</title>
+                <title>Connexion - Easy Gift</title>
             </Head>
-            <section className='w-full h-full flex-grow flex flex-col gap-6 pb-6 my-10 justify-center items-center lg:h-screen lg:m-0'>
-                <h1 className='text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold text-primaryBlue lg:mb-8'>
-                    Connexion
-                </h1>
-                <div>
-                    {errorMessage && (
-                        <p className='text-red-600'>{errorMessage}</p>
-                    )}
+            <div>
+                {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
+            </div>
+            <div className='bg-gray-100 flex justify-center items-center h-screen'>
+                <div className='w-1/2 h-screen hidden lg:block'>
+                    <img
+                        src='https://placehold.co/800x/667fff/ffffff.png?text=Your+Image&font=Montserrat'
+                        alt='Placeholder Image'
+                        className='object-cover w-full h-full'
+                    />
                 </div>
-                <form
-                    className='flex flex-col items-center gap-2 lg:h-3/5'
-                    onSubmit={handleSubmit}
-                >
-                    <div className='grid gap-1'>
-                        <label
-                            htmlFor='email'
-                            className='text-sm font-medium text-muted-foreground'
+                <div className='lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2'>
+                    <h1 className='text-2xl font-semibold mb-4 text-primaryBlue'>
+                        Connexion
+                    </h1>
+                    <form onSubmit={handleSubmit}>
+                        <div className='mb-4'>
+                            <label
+                                htmlFor='email'
+                                className='block text-gray-600'
+                            >
+                                Email
+                            </label>
+                            <Input
+                                className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
+                                data-testid='login-email'
+                                id='email'
+                                type='email'
+                                name='email'
+                                required
+                            />
+                        </div>
+                        <div className='mb-4'>
+                            <label
+                                htmlFor='password'
+                                className='block text-gray-600'
+                            >
+                                Mot de passe
+                            </label>
+                            <Input
+                                className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
+                                data-testid='login-password'
+                                id='password'
+                                type='password'
+                                name='password'
+                                required
+                            />
+                        </div>
+                        {/*<div className='mb-4 flex items-center'>*/}
+                        {/*    <input type='checkbox' id='remember' name='remember' className='text-blue-500'/>*/}
+                        {/*    <label htmlFor='remember' className='text-gray-600 ml-2'>Remember Me</label>*/}
+                        {/*</div>*/}
+                        <div className='mb-6 text-blue-500'>
+                            <Link
+                                href={'/auth/forgot-password'}
+                                className='hover:underline'
+                            >
+                                J'ai oublié mon mot de passe
+                            </Link>
+                        </div>
+                        <Button
+                            data-testid='login-button'
+                            type='submit'
+                            className='bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full'
+                        >Se connecter
+                        </Button>
+                    </form>
+                    <div className='mt-6 text-blue-500 text-center'>
+                        <Link
+                            href={'/auth/register'}
+                            className='hover:underline'
                         >
-                            Email
-                        </label>
-                        <Input
-                            data-testid='login-email'
-                            id='email'
-                            type='email'
-                            name='email'
-                            required
-                        />
+                            Pas encore de compte ?
+                        </Link>
                     </div>
-
-                    <div className='grid gap-1'>
-                        <label
-                            htmlFor='password'
-                            className='text-sm font-medium text-muted-foreground'
-                        >
-                            Mot de passe
-                        </label>
-                        <Input
-                            data-testid='login-password'
-                            id='password'
-                            type='password'
-                            name='password'
-                            required
-                        />
-                    </div>
-
-                    <Button
-                        data-testid='login-button'
-                        type='submit'
-                        className='mt-9 mb-5 lg:mb-8'
-                    >
-                        {'Se connecter'}
-                    </Button>
-
-                    <Link
-                        href={'/auth/register'}
-                        className='text-blue-600 mb-2 lg:mb-4'
-                    >
-                        Pas encore de compte ?
-                    </Link>
-
-                    <Link
-                        href={'/auth/forgot-password'}
-                        className='text-blue-600 hover:underline'
-                    >
-                        J'ai oublié mon mot de passe 🤭
-                    </Link>
-                </form>
-            </section>
+                </div>
+            </div>
         </>
     )
 }
