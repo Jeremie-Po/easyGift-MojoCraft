@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { toast } from 'react-toastify'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Image from "next/image";
 
 function Login() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
