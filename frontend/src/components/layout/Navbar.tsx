@@ -60,22 +60,95 @@ export default function Navbar() {
 
     return (
         <div className={`sticky top-0 shadow-lg bg-bgPrimary z-10`}>
-            <div className={`grid grid-cols-3 pt-6`}>
-                <div className='col-start-2 flex justify-center'>
+            <div className={`flex justify-around md:grid md:grid-cols-3`}>
+                <div className={`flex justify-center md:hidden`}>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <button
+                                aria-label='Ouvrir ou fermer la navigation'
+                                onClick={() => setMenuOpen(!isMenuOpen)}
+                                // className='md:hidden'
+                            >
+                                <svg
+                                    className='h-6 w-6'
+                                    fill='none'
+                                    viewBox='0 0 24 24'
+                                    stroke='currentColor'
+                                >
+                                    <path
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        strokeWidth={2}
+                                        d='M4 6h16M4 12h16M4 18h16'
+                                    />
+                                </svg>
+                            </button>
+                        </DropdownMenuTrigger>
+                        {isConnected ? (
+                            <DropdownMenuContent className='w-56'>
+                                <DropdownMenuLabel>Compte</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuGroup>
+                                    <Link
+                                        href='/mon-profil'
+                                        onClick={closeMenu}
+                                    >
+                                        <DropdownMenuItem>
+                                            Profil
+                                        </DropdownMenuItem>
+                                    </Link>
+                                </DropdownMenuGroup>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuLabel>
+                                    Mes évènements
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuGroup>
+                                    <Link href='/groupes' onClick={closeMenu}>
+                                        <DropdownMenuItem>
+                                            Liste
+                                        </DropdownMenuItem>
+                                    </Link>
+                                    <Link
+                                        href='/creating-groups'
+                                        onClick={closeMenu}
+                                    >
+                                        <DropdownMenuItem>
+                                            Créer
+                                        </DropdownMenuItem>
+                                    </Link>
+                                </DropdownMenuGroup>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem onClick={() => logout()}>
+                                    Déconnexion
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        ) : (
+                            <DropdownMenuContent className='w-56'>
+                                <Link onClick={closeMenu} href='/auth/login'>
+                                    <DropdownMenuItem>
+                                        Connexion
+                                    </DropdownMenuItem>
+                                </Link>
+                            </DropdownMenuContent>
+                        )}
+                    </DropdownMenu>
+                </div>
+                <div className={`md:col-start-2 md:flex md:justify-center`}>
                     <Link
                         href='/'
-                        className='font-rubik text-4xl text-primaryBlue font-bold flex items-center tracking-wider'
+                        className='font-rubik text-2xl text-primaryBlue font-bold flex justify-end items-center md:justify-center md:text-4xl md:tracking-wider'
                         aria-label='Lien vers la page d’accueil'
                     >
                         <img
                             src='/images/logo/logo-easy-gift_desktop.png'
                             alt="Logo d'easy-gift"
-                            className='mr-2 w-20'
+                            className='w-1/4'
                         />
-                        Easy Gift
+                        <span>Easy Gift</span>
                     </Link>
                 </div>
-                <div className='col-start-3 flex justify-center items-center'>
+                <div className='hidden md:col-start-3 md:flex md:justify-center md:items-center'>
                     <Menubar>
                         <MenubarMenu>
                             <MenubarTrigger>Mon compte</MenubarTrigger>
@@ -103,9 +176,9 @@ export default function Navbar() {
                     </Menubar>
                 </div>
             </div>
-            <div className={`grid grid-cols-3 p-3`}>
-                <div className='col-start-2 flex justify-evenly'>
-                    {isConnected && (
+            {isConnected && (
+                <div className={`grid grid-cols-3 p-3 hidden md:block`}>
+                    <div className='col-start-2 flex justify-evenly'>
                         <>
                             <Link
                                 href='/groupes'
@@ -120,72 +193,9 @@ export default function Navbar() {
                                 NOUVEL ÉVÉNEMENT
                             </Link>
                         </>
-                    )}
+                    </div>
                 </div>
-            </div>
-            {/* Side Drawer for Mobile Screens */}
-            <div className='col-start-2 flex justify-center'>
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <button
-                            aria-label='Ouvrir ou fermer la navigation'
-                            onClick={() => setMenuOpen(!isMenuOpen)}
-                            className='md:hidden'
-                        >
-                            <svg
-                                className='h-6 w-6'
-                                fill='none'
-                                viewBox='0 0 24 24'
-                                stroke='currentColor'
-                            >
-                                <path
-                                    strokeLinecap='round'
-                                    strokeLinejoin='round'
-                                    strokeWidth={2}
-                                    d='M4 6h16M4 12h16M4 18h16'
-                                />
-                            </svg>
-                        </button>
-                    </DropdownMenuTrigger>
-                    {isConnected ? (
-                        <DropdownMenuContent className='w-56'>
-                            <DropdownMenuLabel>Compte</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuGroup>
-                                <Link href='/mon-profil' onClick={closeMenu}>
-                                    <DropdownMenuItem>Profil</DropdownMenuItem>
-                                </Link>
-                            </DropdownMenuGroup>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuLabel>
-                                Mes évènements
-                            </DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuGroup>
-                                <Link href='/groupes' onClick={closeMenu}>
-                                    <DropdownMenuItem>Liste</DropdownMenuItem>
-                                </Link>
-                                <Link
-                                    href='/creating-groups'
-                                    onClick={closeMenu}
-                                >
-                                    <DropdownMenuItem>Créer</DropdownMenuItem>
-                                </Link>
-                            </DropdownMenuGroup>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem onClick={() => logout()}>
-                                Déconnexion
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    ) : (
-                        <DropdownMenuContent className='w-56'>
-                            <Link onClick={closeMenu} href='/auth/login'>
-                                <DropdownMenuItem>Connexion</DropdownMenuItem>
-                            </Link>
-                        </DropdownMenuContent>
-                    )}
-                </DropdownMenu>
-            </div>
+            )}
         </div>
     )
 }
