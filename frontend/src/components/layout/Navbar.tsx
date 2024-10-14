@@ -182,13 +182,13 @@ export default function Navbar() {
                         <>
                             <Link
                                 href='/groupes'
-                                className={`${currentPath === '/groupes' ? 'underline' : ''}`}
+                                className={`${currentPath === '/groupes' ? 'font-bold' : ''} hover:underline`}
                             >
                                 MES ÉVÉNEMENTS
                             </Link>
                             <Link
                                 href='/creating-groups'
-                                className={`${currentPath === '/creating-groups' ? 'underline' : ''}`}
+                                className={`${currentPath === '/creating-groups' ? 'font-bold' : ''} hover:underline`}
                             >
                                 NOUVEL ÉVÉNEMENT
                             </Link>
