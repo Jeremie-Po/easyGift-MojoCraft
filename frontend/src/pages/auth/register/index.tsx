@@ -3,9 +3,10 @@ import { Input } from '@/components/ui/input'
 import { useRegisterUserMutation } from '@/graphql/generated/schema'
 import { useRouter } from 'next/router'
 import { getConstraints } from '@/lib/utils'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import Head from 'next/head'
+import Link from 'next/link'
 
 function Register() {
     const router = useRouter()
@@ -54,6 +55,11 @@ function Register() {
         })
     }
 
+    const handleBack = (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        router.back()
+    }
+
     const errorMessages = getConstraints(
         error?.graphQLErrors[0].extensions.validationErrors
     )
@@ -61,72 +67,123 @@ function Register() {
     return (
         <>
             <Head>
-                <title>Création de mon compte - Easy Gift</title>
+                <title>Inscription - Easy Gift</title>
             </Head>
-            <section className='w-full h-full flex-grow flex flex-col gap-6 pb-6 my-10 justify-center items-center lg:h-screen lg:m-0'>
-                <h1 className='text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold text-primaryBlue lg:mb-8'>
-                    Inscription
-                </h1>
-                <div>
-                    {errorMessages &&
-                        errorMessages.map((item, index) =>
-                            Object.values(item).map(
-                                (value: any, valueIndex) => (
-                                    <p
-                                        key={`${index}-${valueIndex}`}
-                                        className='text-red-600'
-                                    >
-                                        {value}
-                                    </p>
-                                )
-                            )
-                        )}
-                </div>
-                <form
-                    className='flex flex-col items-center gap-2 lg:h-3/5'
-                    onSubmit={handleSubmit}
-                >
-                    <div className='grid gap-1'>
-                        <label
-                            htmlFor='pseudo'
-                            className='text-sm font-medium text-muted-foreground'
+            <div className='bg-gray-100 h-screen flex'>
+                <img
+                    src='/images/img-pages/top-view-presents-with-tag-copy-space.png'
+                    alt='pile de cadeaux'
+                    className='w-1/2 xl:w-2/3 h-full object-cover object-left bg-white hidden lg:block '
+                />
+                <div className='w-full lg:w-1/2 flex flex-col justify-center items-center gap-12'>
+                    <Link
+                        className={`w-80 hover:underline flex block text-gray-600 gap-2`}
+                        href='#'
+                        onClick={handleBack}
+                    >
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            strokeWidth={1.5}
+                            stroke='currentColor'
+                            className='size-6'
                         >
-                            Pseudo
-                        </label>
-                        <Input id='pseudo' type='text' name='pseudo' />
-                    </div>
-
-                    <div className='grid gap-1'>
-                        <label
-                            htmlFor='email'
-                            className='text-sm font-medium text-muted-foreground'
-                        >
-                            Email <span className='text-red-600'>*</span>
-                        </label>
-                        <Input id='email' type='email' name='email' required />
-                    </div>
-
-                    <div className='grid gap-1'>
-                        <label
-                            htmlFor='password'
-                            className='text-sm font-medium text-muted-foreground'
-                        >
-                            Mot de passe <span className='text-red-600'>*</span>
-                        </label>
-                        <Input
-                            id='password'
-                            type='password'
-                            name='password'
-                            required
+                            <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                d='M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18'
+                            />
+                        </svg>
+                        Retour
+                    </Link>
+                    <Link
+                        href={'/'}
+                        className='font-rubik text-4xl text-primaryBlue font-bold flex justify-center items-center md:justify-center md:text-4xl md:tracking-wider'
+                        aria-label='Lien vers la page d’accueil'
+                    >
+                        <img
+                            src='/images/logo/logo-easy-gift_desktop.png'
+                            alt="Logo d'easy-gift"
+                            className='w-1/4'
                         />
-                    </div>
+                        <span>Easy Gift</span>
+                    </Link>
+                    <section className={`w-80`}>
+                        <h1 className='text-2xl font-semibold mb-4'>
+                            Inscription
+                        </h1>
+                        <div>
+                            {errorMessages &&
+                                errorMessages.map((item, index) =>
+                                    Object.values(item).map(
+                                        (value: any, valueIndex) => (
+                                            <p
+                                                key={`${index}-${valueIndex}`}
+                                                className='text-red-600'
+                                            >
+                                                {value}
+                                            </p>
+                                        )
+                                    )
+                                )}
+                        </div>
+                        <form onSubmit={handleSubmit}>
+                            <div className='mb-4'>
+                                <label
+                                    htmlFor='pseudo'
+                                    className='block text-gray-600'
+                                >
+                                    Pseudo
+                                </label>
+                                <Input id='pseudo' type='text' name='pseudo' />
+                            </div>
 
-                    <Button type='submit' className='mt-9 mb-5 lg:mb-8'>
-                        {'Valider'}
-                    </Button>
-                    <p className='text-red-600'>* Champs obligatoires</p>
-                </form>
-            </section>
+                            <div className='mb-4'>
+                                <label
+                                    htmlFor='email'
+                                    className='block text-gray-600'
+                                >
+                                    Email{' '}
+                                    <span className='text-red-600'>*</span>
+                                </label>
+                                <Input
+                                    id='email'
+                                    type='email'
+                                    name='email'
+                                    required
+                                />
+                            </div>
+
+                            <div className='mb-8'>
+                                <label
+                                    htmlFor='password'
+                                    className='block text-gray-600'
+                                >
+                                    Mot de passe{' '}
+                                    <span className='text-red-600'>*</span>
+                                </label>
+                                <Input
+                                    id='password'
+                                    type='password'
+                                    name='password'
+                                    required
+                                />
+                            </div>
+
+                            <Button
+                                type='submit'
+                                className='mb-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full'
+                            >
+                                Créer mon compte
+                            </Button>
+                            <p className='text-red-600'>
+                                * Champs obligatoires
+                            </p>
+                        </form>
+                    </section>
+                </div>
+            </div>
         </>
     )
 }

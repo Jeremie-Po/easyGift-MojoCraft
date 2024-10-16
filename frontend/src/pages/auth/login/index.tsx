@@ -5,8 +5,10 @@ import Link from 'next/link'
 import { toast } from 'react-toastify'
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 function Login() {
+    const router = useRouter()
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
     const [login, { data, error }] = useLoginLazyQuery({
         onCompleted: () => {
@@ -52,6 +54,11 @@ function Login() {
         }
     }
 
+    const handleBack = (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        router.back()
+    }
+
     return (
         <>
             <Head>
@@ -60,78 +67,108 @@ function Login() {
             <div>
                 {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
             </div>
-            <div className='bg-gray-100 flex justify-center items-center h-screen'>
-                <div className=' h-screen hidden lg:block'>
-                    <img
-                        src='/images/img-pages/illustration-gift-boxes.jpg'
-                        alt='pile de cadeaux'
-                        className='object-contain w-full h-full objet-cover'
-                    />
-                </div>
-                <div className='lg:p-36 md:p-52 sm:p-20 p-8 w-full lg:w-1/2'>
-                    <h1 className='text-2xl font-semibold mb-4 text-primaryBlue'>
-                        Connexion
-                    </h1>
-                    <form onSubmit={handleSubmit}>
-                        <div className='mb-4'>
-                            <label
-                                htmlFor='email'
-                                className='block text-gray-600'
-                            >
-                                Email
-                            </label>
-                            <Input
-                                className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
-                                data-testid='login-email'
-                                id='email'
-                                type='email'
-                                name='email'
-                                required
+            <div className='bg-gray-100 h-screen flex'>
+                <img
+                    src='/images/img-pages/top-view-presents-with-tag-copy-space.png'
+                    alt='pile de cadeaux'
+                    className='w-1/2 xl:w-2/3 h-full object-cover object-left bg-white hidden lg:block '
+                />
+                <div className='w-full lg:w-1/2 flex flex-col justify-center items-center gap-12'>
+                    <Link
+                        className={`w-80 hover:underline flex block text-gray-600 gap-2`}
+                        href='#'
+                        onClick={handleBack}
+                    >
+                        <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            fill='none'
+                            viewBox='0 0 24 24'
+                            strokeWidth={1.5}
+                            stroke='currentColor'
+                            className='size-6'
+                        >
+                            <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                d='M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18'
                             />
-                        </div>
-                        <div className='mb-4'>
-                            <label
-                                htmlFor='password'
-                                className='block text-gray-600'
+                        </svg>
+                        Retour
+                    </Link>
+                    <Link
+                        href={'/'}
+                        className='font-rubik text-4xl text-primaryBlue font-bold flex justify-center items-center md:justify-center md:text-4xl md:tracking-wider'
+                        aria-label='Lien vers la page d’accueil'
+                    >
+                        <img
+                            src='/images/logo/logo-easy-gift_desktop.png'
+                            alt="Logo d'easy-gift"
+                            className='w-1/4'
+                        />
+                        <span>Easy Gift</span>
+                    </Link>
+                    <section className={`w-80`}>
+                        <h1 className='text-2xl font-semibold mb-4'>
+                            Connexion
+                        </h1>
+                        <form onSubmit={handleSubmit}>
+                            <div className='mb-4'>
+                                <label
+                                    htmlFor='email'
+                                    className='block text-gray-600'
+                                >
+                                    Email
+                                </label>
+                                <Input
+                                    className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
+                                    data-testid='login-email'
+                                    id='email'
+                                    type='email'
+                                    name='email'
+                                    required
+                                />
+                            </div>
+                            <div className='mb-4'>
+                                <label
+                                    htmlFor='password'
+                                    className='block text-gray-600'
+                                >
+                                    Mot de passe
+                                </label>
+                                <Input
+                                    className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
+                                    data-testid='login-password'
+                                    id='password'
+                                    type='password'
+                                    name='password'
+                                    required
+                                />
+                            </div>
+                            <div className='mb-6 text-blue-500 flex justify-end'>
+                                <Link
+                                    href={'/auth/forgot-password'}
+                                    className='hover:underline'
+                                >
+                                    Mot de passe oublié ?
+                                </Link>
+                            </div>
+                            <Button
+                                data-testid='login-button'
+                                type='submit'
+                                className='bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full'
                             >
-                                Mot de passe
-                            </label>
-                            <Input
-                                className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
-                                data-testid='login-password'
-                                id='password'
-                                type='password'
-                                name='password'
-                                required
-                            />
-                        </div>
-                        {/*<div className='mb-4 flex items-center'>*/}
-                        {/*    <input type='checkbox' id='remember' name='remember' className='text-blue-500'/>*/}
-                        {/*    <label htmlFor='remember' className='text-gray-600 ml-2'>Remember Me</label>*/}
-                        {/*</div>*/}
-                        <div className='mb-6 text-blue-500'>
+                                Connexion
+                            </Button>
+                        </form>
+                        <div className='mt-6 text-blue-500 text-center'>
                             <Link
-                                href={'/auth/forgot-password'}
+                                href={'/auth/register'}
                                 className='hover:underline'
                             >
-                                J'ai oublié mon mot de passe
+                                Pas encore de compte ?
                             </Link>
                         </div>
-                        <Button
-                            data-testid='login-button'
-                            type='submit'
-                            className='bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full'
-                        >Se connecter
-                        </Button>
-                    </form>
-                    <div className='mt-6 text-blue-500 text-center'>
-                        <Link
-                            href={'/auth/register'}
-                            className='hover:underline'
-                        >
-                            Pas encore de compte ?
-                        </Link>
-                    </div>
+                    </section>
                 </div>
             </div>
         </>
