@@ -61,13 +61,12 @@ function Login() {
                 {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
             </div>
             <div className='bg-gray-100 flex justify-center items-center h-screen'>
-                <div className=' h-screen hidden lg:block'>
-                    <img
-                        src='/images/img-pages/illustration-gift-boxes.jpg'
-                        alt='pile de cadeaux'
-                        className='object-contain w-full h-full objet-cover'
-                    />
-                </div>
+                <img
+                    src='/images/img-pages/top-view-presents-with-tag-copy-space.png'
+                    alt='pile de cadeaux'
+                    className='w-1/2 xl:w-2/3 h-full object-cover object-left bg-white hidden lg:block '
+                />
+
                 <div className='lg:p-36 md:p-52 sm:p-20 p-8 w-full lg:w-1/2'>
                     <h1 className='text-2xl font-semibold mb-4 text-primaryBlue'>
                         Connexion
@@ -121,7 +120,8 @@ function Login() {
                             data-testid='login-button'
                             type='submit'
                             className='bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full'
-                        >Se connecter
+                        >
+                            Se connecter
                         </Button>
                     </form>
                     <div className='mt-6 text-blue-500 text-center'>

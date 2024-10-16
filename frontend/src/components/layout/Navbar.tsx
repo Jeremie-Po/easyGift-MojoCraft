@@ -100,9 +100,7 @@ export default function Navbar() {
                     </DropdownMenu>
                 </div>
                 {/*logo*/}
-                <div
-                    className={`md:flex md:justify-center ${isConnected ? 'md:col-start-1' : 'md:col-start-2'}`}
-                >
+                <div className={`md:flex md:justify-center md:col-start-1`}>
                     <Link
                         href='/'
                         className='font-rubik text-2xl text-primaryBlue font-bold flex justify-end items-center md:justify-center md:text-4xl md:tracking-wider'
