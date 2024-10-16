@@ -107,7 +107,7 @@ function Login() {
                         />
                         <span>Easy Gift</span>
                     </Link>
-                    <div className={`w-80`}>
+                    <section className={`w-80`}>
                         <h1 className='text-2xl font-semibold mb-4'>
                             Connexion
                         </h1>
@@ -168,7 +168,7 @@ function Login() {
                                 Pas encore de compte ?
                             </Link>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </div>
         </>
