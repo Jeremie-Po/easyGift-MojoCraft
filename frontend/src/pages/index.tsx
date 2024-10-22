@@ -1,4 +1,4 @@
-import React, { use } from 'react'
+import React from 'react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import {
@@ -16,6 +16,14 @@ import Link from 'next/link'
 import GroupCard from '@/components/GroupCard'
 import FakeDataGroups from '@/components/group/fakeDataGroups'
 import Head from 'next/head'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { useRef } from 'react'
+import 'splitting/dist/splitting.css'
+import 'splitting/dist/splitting-cells.css'
+import Splitting from 'splitting'
+
+gsap.registerPlugin(useGSAP)
 
 export default function Home() {
     const router = useRouter()
@@ -72,12 +80,34 @@ export default function Home() {
         }
     }
 
+    const container = useRef()
+
+    useGSAP(
+        () => {
+            // gsap code here...
+            gsap.from('.image1', {
+                duration: 3,
+                opacity: 0,
+            })
+            gsap.from('.text1', {
+                ease: 'power3.out',
+                duration: 3,
+                y: '50',
+                opacity: 0,
+            })
+        },
+        { scope: container }
+    ) // <-- scope is for selector text (optional)
+
     return (
         <>
             <Head>
                 <title>Page d'accueil - Easy Gift</title>
             </Head>
-            <section className='my-10 min-h-40 h-auto flex flex-initial flex-wrap content-start items-center mx-auto w-4/5 md:my-28 md:min-h-80 md:justify-evenly md:max-w-2xl lg:flex-nowrap lg:my-44 lg:max-w-7xl xl:my-20 xl:min-h-120  2xl:max-w-[1800px] 2xl:h-[85vh] 2xl:content-center 2xl:my-0'>
+            <section
+                ref={container}
+                className='my-10 min-h-40 h-auto flex flex-initial flex-wrap content-start items-center mx-auto w-4/5 md:my-28 md:min-h-80 md:justify-evenly md:max-w-2xl lg:flex-nowrap lg:my-44 lg:max-w-7xl xl:my-20 xl:min-h-120  2xl:max-w-[1800px] 2xl:h-[85vh] 2xl:content-center 2xl:my-0'
+            >
                 <div className='hidden relative w-full order-2 md:block md:max-w-4xl md:min-w-96 lg:mb-24 lg:order-1 lg:max-w-xl:min-h-130 lg:max-w-lg 2xl:max-w-4xl'>
                     <Image
                         src='/images/img-pages/hero-img.png'
@@ -86,13 +116,17 @@ export default function Home() {
                         height={712}
                         priority={true}
                         style={{ objectFit: 'cover' }}
+                        className={'image1'}
                     />
                 </div>
                 <div className='h-auto mb-9 sm:max-w-2xl md:w-2/2 md:max-w-3xl lg:mb-0 lg:max-w-lg 2xl:max-w-2xl'>
-                    <h1 className='mb-10 text-4xl md:text-5xl md:mb-14 2xl::text-6xl font-bold text-primaryBlue'>
+                    <h1 className='text1 mb-10 text-4xl md:text-5xl md:mb-14 2xl::text-6xl font-bold text-primaryBlue'>
                         Easy Gift
                     </h1>
-                    <p className='mb-9 text-lg text-left md:mb-10 md:text-xl 2xl:text-2xl'>
+                    <p
+                        data-splitting
+                        className='paragraphe1 mb-9 text-lg text-left md:mb-10 md:text-xl 2xl:text-2xl'
+                    >
                         Prêt à en finir avec les cadeaux ratés ?
                         <br />
                         <b>Organisez et échangez</b> avec vos ami(e)s pour
