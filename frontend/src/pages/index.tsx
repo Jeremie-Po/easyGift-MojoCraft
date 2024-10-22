@@ -21,7 +21,6 @@ import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 import 'splitting/dist/splitting.css'
 import 'splitting/dist/splitting-cells.css'
-import Splitting from 'splitting'
 
 gsap.registerPlugin(useGSAP)
 
@@ -80,7 +79,7 @@ export default function Home() {
         }
     }
 
-    const container = useRef()
+    const container = useRef<HTMLElement | null>(null)
 
     useGSAP(
         () => {
@@ -92,7 +91,7 @@ export default function Home() {
             gsap.from('.text1', {
                 ease: 'power3.out',
                 duration: 3,
-                y: '50',
+                y: '20',
                 opacity: 0,
             })
         },
