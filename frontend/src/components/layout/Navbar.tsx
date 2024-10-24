@@ -32,7 +32,7 @@ export default function Navbar() {
         fetchPolicy: 'cache-and-network',
     })
     return (
-        <div className={`sticky top-0 shadow-lg bg-bgPrimary z-10`}>
+        <div className={`sticky top-0 bg-rose-100`}>
             <div className={`flex justify-around md:grid md:grid-cols-3`}>
                 {/*burger menu icon */}
                 <div className={`flex justify-center md:hidden`}>
@@ -56,42 +56,55 @@ export default function Navbar() {
                             {/*burger menu content*/}
                         </DropdownMenuTrigger>
                         {isConnected ? (
-                            <DropdownMenuContent className='w-56'>
+                            <DropdownMenuContent className='w-56 bg-rose-50'>
                                 <DropdownMenuLabel>Compte</DropdownMenuLabel>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
                                     <Link href='/mon-profil'>
-                                        <DropdownMenuItem>
+                                        <DropdownMenuItem
+                                            className={'focus:bg-rose-100'}
+                                        >
                                             Profil
                                         </DropdownMenuItem>
                                     </Link>
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuLabel>
+                                <DropdownMenuLabel
+                                    className={'focus:bg-rose-100'}
+                                >
                                     Mes évènements
                                 </DropdownMenuLabel>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
                                     <Link href='/groupes'>
-                                        <DropdownMenuItem>
+                                        <DropdownMenuItem
+                                            className={'focus:bg-rose-100'}
+                                        >
                                             Liste
                                         </DropdownMenuItem>
                                     </Link>
                                     <Link href='/creating-groups'>
-                                        <DropdownMenuItem>
+                                        <DropdownMenuItem
+                                            className={'focus:bg-rose-100'}
+                                        >
                                             Créer
                                         </DropdownMenuItem>
                                     </Link>
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem onClick={() => logout()}>
+                                <DropdownMenuItem
+                                    onClick={() => logout()}
+                                    className={'focus:bg-rose-100'}
+                                >
                                     Déconnexion
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         ) : (
-                            <DropdownMenuContent className='w-56'>
+                            <DropdownMenuContent className='w-56 bg-rose-50'>
                                 <Link href='/auth/login'>
-                                    <DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        className={'focus:bg-rose-100'}
+                                    >
                                         Connexion
                                     </DropdownMenuItem>
                                 </Link>
@@ -107,7 +120,7 @@ export default function Navbar() {
                         aria-label='Lien vers la page d’accueil'
                     >
                         <img
-                            src='/images/logo/logo-easy-gift_desktop.png'
+                            src='/images/logo/logo-easy-gift_desktop2.png'
                             alt="Logo d'easy-gift"
                             className='w-1/4'
                         />
@@ -119,22 +132,22 @@ export default function Navbar() {
                     className={`hidden ${isConnected ? 'md:col-start-2 md:col-span-3' : 'md:col-start-3'} md:flex md:justify-around md:items-center`}
                 >
                     {isConnected && (
-                        <nav className='flex justify-around gap-4'>
+                        <nav className='flex justify-around h-full items-center'>
                             <Link
                                 href='/groupes'
-                                className={`${currentPath === '/groupes' ? 'font-bold' : ''} hover:underline`}
+                                className={`${currentPath === '/groupes' ? 'font-bold' : ''} hover:bg-rose-200 px-4 h-full flex items-center`}
                             >
                                 MES ÉVÉNEMENTS
                             </Link>
                             <Link
                                 href='/creating-groups'
-                                className={`${currentPath === '/creating-groups' ? 'font-bold' : ''} hover:underline`}
+                                className={`${currentPath === '/creating-groups' ? 'font-bold' : ''} hover:bg-rose-200 px-4 h-full flex items-center`}
                             >
                                 NOUVEL ÉVÉNEMENT
                             </Link>
                             <Link
                                 href='/mon-profil'
-                                className={`${currentPath === '/mon-profil' ? 'font-bold' : ''} hover:underline`}
+                                className={`${currentPath === '/mon-profil' ? 'font-bold' : ''} hover:bg-rose-200 px-4 h-full flex items-center`}
                             >
                                 MON PROFIL
                             </Link>

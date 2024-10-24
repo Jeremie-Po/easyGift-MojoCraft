@@ -117,7 +117,7 @@ export default function MyGroup({ group, link }: GroupComponentProps) {
                     </div>
                 </div>
 
-                {isConnected && (
+                {isConnected ? (
                     <div className='flex justify-between'>
                         <Button>
                             <Link
@@ -128,6 +128,15 @@ export default function MyGroup({ group, link }: GroupComponentProps) {
                         </Button>
                         <Button>
                             <Link href={link}>Consulter</Link>
+                        </Button>
+                    </div>
+                ) : (
+                    <div className='flex justify-between'>
+                        <Button>
+                            <Link href={`/auth/login`}>Discussion</Link>
+                        </Button>
+                        <Button>
+                            <Link href={`/auth/login`}>Consulter</Link>
                         </Button>
                     </div>
                 )}

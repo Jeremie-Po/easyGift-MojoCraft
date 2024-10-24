@@ -69,7 +69,7 @@ function Register() {
             <Head>
                 <title>Inscription - Easy Gift</title>
             </Head>
-            <div className='bg-gray-100 h-screen flex'>
+            <div className='bg-rose-100 h-screen flex'>
                 <img
                     src='/images/img-pages/top-view-presents-with-tag-copy-space.png'
                     alt='pile de cadeaux'
@@ -103,7 +103,7 @@ function Register() {
                         aria-label='Lien vers la page d’accueil'
                     >
                         <img
-                            src='/images/logo/logo-easy-gift_desktop.png'
+                            src='/images/logo/logo-easy-gift_desktop2.png'
                             alt="Logo d'easy-gift"
                             className='w-1/4'
                         />
