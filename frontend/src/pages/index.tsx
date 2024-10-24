@@ -144,8 +144,8 @@ export default function Home() {
                     </div>
                 </section>
                 <section className='flex flex-col gap-10 mb-12 w-10/12 justify-center items-center bg-rose-100'>
-                    <div className='w-full lg:flex lg:justify-center'>
-                        <h2 className='w-4/5 text-3xl md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
+                    <div className='w-full '>
+                        <h2 className='w-4/5 lg:flex lg:justify-center text-3xl md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
                             Comment ça marche ?
                         </h2>
                     </div>
@@ -235,15 +235,15 @@ export default function Home() {
                     {(!isConnected ||
                         (isConnected && groups && groups?.length < 1)) && (
                         <>
-                            <div className='w-full lg:flex lg:justify-center'>
-                                <h2 className='w-4/5 text-3xl md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
-                                    Retrouves tes groupes
+                            <div className='w-full '>
+                                <h2 className='w-4/5 lg:flex lg:justify-center text-3xl md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
+                                    Retrouves tes événements
                                 </h2>
                             </div>
                             <p className='w-full lg:flex lg:justify-center text-base text-gray-700 lg:text-lg'>
                                 Voici un exemple d'événements qui ont été créés{' '}
                             </p>
-                            <div className='flex flex-wrap gap-6 justify-center max-w-80 lg:justify-center w-10/12 md:max-w-none md:min-w-[680px]  md:w-4/5 lg:w-full lg:max-w-[1000px]'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-center items-center'>
                                 <GroupCard
                                     key='1'
                                     group={group1}
