@@ -69,7 +69,7 @@ function Register() {
             <Head>
                 <title>Inscription - Easy Gift</title>
             </Head>
-            <div className='bg-gray-100 h-screen flex'>
+            <div className='bg-rose-100 h-screen flex'>
                 <img
                     src='/images/img-pages/top-view-presents-with-tag-copy-space.png'
                     alt='pile de cadeaux'

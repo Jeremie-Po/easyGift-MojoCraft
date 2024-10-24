@@ -106,7 +106,7 @@ export default function Home() {
             <div className='bg-rose-100 flex flex-col justify-center items-center'>
                 <section
                     ref={container}
-                    className='flex flex-col gap-3 mt-5 justify-center items-center w-10/12 lg:mt-20 lg:gap-10'
+                    className='flex flex-col gap-3 mt-5 mb-12 justify-center items-center w-10/12 lg:mt-20 lg:gap-10'
                 >
                     <div className='w-full lg:flex lg:justify-center'>
                         <h1 className='text1 text-3xl font-bold text-primaryRed lg:text-4xl'>
@@ -160,10 +160,93 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className='flex flex-col justify-center items-center bg-rose-100'>
-                    <h2 className='w-4/5 text-xl mb-8  sm:text-center md:text-4xl 4xl:text-5xl font-bold  lg:mb-14 lg:w-full 2xl:mb-8 2xl:mt-32 text-primaryRed'>
-                        Comment ça marche ?
-                    </h2>
+                <section className='flex flex-col gap-10 w-10/12 justify-center items-center bg-rose-100'>
+                    <div className='w-full lg:flex lg:justify-center'>
+                        <h2 className='w-4/5 text-3xl sm:text-center md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
+                            Comment ça marche ?
+                        </h2>
+                    </div>
+                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
+                        <div className='flex flex-col gap-3 items-center'>
+                            <div>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    fill='none'
+                                    viewBox='0 0 24 24'
+                                    strokeWidth={1.5}
+                                    stroke='currentColor'
+                                    className='size-10 text-primaryRed'
+                                >
+                                    <path
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        d='M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+                                    />
+                                </svg>
+                            </div>
+                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                1. Créez votre évenement
+                            </div>
+                            <p className='text-base text-gray-700 lg:text-lg'>
+                                Créez un évenement pour votre famille ou vos
+                                amis et invitez-les à le rejoindre
+                            </p>
+                        </div>
+                    </div>
+                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
+                        <div className='flex flex-col gap-3 items-center'>
+                            <div>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    fill='none'
+                                    viewBox='0 0 24 24'
+                                    strokeWidth={1.5}
+                                    stroke='currentColor'
+                                    className='size-10 text-primaryRed'
+                                >
+                                    <path
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        d='M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155'
+                                    />
+                                </svg>
+                            </div>
+                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                2. Discutez des cadeaux
+                            </div>
+                            <p className='text-base text-gray-700 lg:text-lg'>
+                                Chaque membre a son fil de discussion dédié où
+                                les autres peuvent partager leurs idées
+                            </p>
+                        </div>
+                    </div>
+                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
+                        <div className='flex flex-col gap-3 items-center'>
+                            <div>
+                                <svg
+                                    xmlns='http://www.w3.org/2000/svg'
+                                    fill='none'
+                                    viewBox='0 0 24 24'
+                                    strokeWidth={1.5}
+                                    stroke='currentColor'
+                                    className='size-10 text-primaryRed'
+                                >
+                                    <path
+                                        strokeLinecap='round'
+                                        strokeLinejoin='round'
+                                        d='M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z'
+                                    />
+                                </svg>
+                            </div>
+                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                3. Gardez la surprise
+                            </div>
+                            <p className='text-base text-gray-700 lg:text-lg'>
+                                Vous ne pouvez pas voir les discussions
+                                concernant vos propres cadeaux
+                            </p>
+                        </div>
+                    </div>
                     {/*<article className='w-4/5 sm:max-w-xl 2xl:ml-36 4xl:ml-52 lg:order-3'>*/}
                     {/*    <p className='mb-8 text-lg md:mb-10 md:text-xl  2xl:text-2xl 2xl:pt-12'>*/}
                     {/*        Fini les "oups,... tu n'as rien entendu !"*/}
