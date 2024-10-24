@@ -103,7 +103,7 @@ function Register() {
                         aria-label='Lien vers la page d’accueil'
                     >
                         <img
-                            src='/images/logo/logo-easy-gift_desktop.png'
+                            src='/images/logo/logo-easy-gift_desktop2.png'
                             alt="Logo d'easy-gift"
                             className='w-1/4'
                         />
