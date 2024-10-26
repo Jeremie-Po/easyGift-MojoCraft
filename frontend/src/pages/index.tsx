@@ -137,73 +137,86 @@ export default function Home() {
                             Comment ça marche ?
                         </h2>
                     </div>
-                    <div
-                        className='
+                    <div className='flex flex-col gap-8 justify-center items-center lg:flex-row'>
+                        <div className='flex flex-col justify-center items-center gap-8'>
+                            <div
+                                className='
                             flex items-center justify-center
                             w-12 h-12 rounded-full
                             border-2 border-blue-500
                             font-bold
                             text-blue-500
                             text-3xl
-                        '
-                    >
-                        1
-                    </div>
-                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
-                        <div className='flex flex-col gap-3 items-center'>
-                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
-                                Créez votre évenement
+                            '
+                            >
+                                1
                             </div>
-                            <p className='text-base text-gray-700 lg:text-lg'>
-                                Créez un évenement pour votre famille ou vos
-                                amis et invitez-les à le rejoindre
-                            </p>
+                            <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                                <div className='flex flex-col gap-3 items-center'>
+                                    <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                        Créez votre évenement
+                                    </div>
+                                    <p className='text-base text-gray-700 lg:text-lg'>
+                                        Créez un évenement pour votre famille ou
+                                        vos amis et invitez-les à le rejoindre
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div
-                        className={`
-            flex items-center justify-center
-            w-12 h-12 rounded-full
-            border-2 border-blue-500
-            font-bold
-            text-blue-500
-            text-3xl
-          `}
-                    >
-                        2
-                    </div>
-                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
-                        <div className='flex flex-col gap-3 items-center'>
-                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
-                                Discutez des cadeaux
+                        <div className='flex flex-col gap-8 justify-center items-center lg:flex-row'>
+                            <div className='flex flex-col justify-center items-center gap-8'>
+                                <div
+                                    className={`flex items-center justify-center
+                                        w-12 h-12 rounded-full
+                                        border-2 border-blue-500
+                                        font-bold
+                                        text-blue-500
+                                        text-3xl
+                                        `}
+                                >
+                                    2
+                                </div>
+                                <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                                    <div className='flex flex-col gap-3 items-center'>
+                                        <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                            Discutez des cadeaux
+                                        </div>
+                                        <p className='text-base text-gray-700 lg:text-lg'>
+                                            Chaque membre a son fil de
+                                            discussion dédié où les autres
+                                            peuvent partager leurs idées
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <p className='text-base text-gray-700 lg:text-lg'>
-                                Chaque membre a son fil de discussion dédié où
-                                les autres peuvent partager leurs idées
-                            </p>
                         </div>
-                    </div>
-                    <div
-                        className={`
-            flex items-center justify-center
-            w-12 h-12 rounded-full
-            border-2 border-blue-500
-            font-bold
-            text-blue-500
-            text-3xl
-          `}
-                    >
-                        3
-                    </div>
-                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
-                        <div className='flex flex-col gap-3 items-center'>
-                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
-                                Gardez la surprise
+                        <div className='flex flex-col gap-8 justify-center items-center lg:flex-row'>
+                            <div className='flex flex-col justify-center items-center gap-8'>
+                                <div
+                                    className={`
+                                        flex items-center justify-center
+                                        w-12 h-12 rounded-full
+                                        border-2 border-blue-500
+                                        font-bold
+                                        text-blue-500
+                                        text-3xl
+                                      `}
+                                >
+                                    3
+                                </div>
+                                <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                                    <div className='flex flex-col gap-3 items-center'>
+                                        <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                            Gardez la surprise
+                                        </div>
+                                        <p className='text-base text-gray-700 lg:text-lg'>
+                                            Vous ne pouvez pas voir les
+                                            discussions concernant vos propres
+                                            cadeaux
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <p className='text-base text-gray-700 lg:text-lg'>
-                                Vous ne pouvez pas voir les discussions
-                                concernant vos propres cadeaux
-                            </p>
                         </div>
                     </div>
                 </section>
