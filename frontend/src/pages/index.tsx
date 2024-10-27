@@ -292,15 +292,15 @@ export default function Home() {
                     {(!isConnected ||
                         (isConnected && groups && groups?.length < 1)) && (
                         <>
-                            <div className='w-full '>
-                                <h2 className='w-11/12 text-xl lg:flex lg:justify-center md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
+                            <div className='w-full flex justify-center'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
                                     Retrouves tes événements
                                 </h2>
                             </div>
                             <p className='w-full lg:flex lg:justify-center text-base text-gray-700 lg:text-lg'>
                                 Voici un exemple d'événements qui ont été créés
                             </p>
-                            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-center items-center'>
+                            <div className='flex flex-wrap justify-center lg:justify-evenly gap-10'>
                                 <GroupCard
                                     key='1'
                                     group={group1}
@@ -322,12 +322,12 @@ export default function Home() {
 
                     {isConnected && groups && groups.length > 0 && (
                         <>
-                            <div className='w-full lg:flex lg:justify-center'>
-                                <h2 className='w-4/5 text-3xl sm:text-center md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
+                            <div className='w-full flex justify-center'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
                                     Mes groupes
                                 </h2>
                             </div>
-                            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 items-center'>
+                            <div className='flex flex-wrap justify-center lg:justify-evenly gap-10'>
                                 {groups.map(group => (
                                     <GroupCard
                                         key={group.id}
