@@ -47,14 +47,6 @@ export default function Home() {
 
     const { group1, link1, group2, link2, group3, link3 } = FakeDataGroups()
 
-    const handleButtonClick = () => {
-        if (isConnected) {
-            router.push('/creating-groups')
-        } else {
-            router.push('/auth/login')
-        }
-    }
-
     const container = useRef<HTMLElement | null>(null)
 
     useGSAP(
