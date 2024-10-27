@@ -307,6 +307,120 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
+                <section className='flex flex-col gap-8 mb-12 w-11/12 justify-center items-center'>
+                    <div className='w-full flex justify-center'>
+                        <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
+                            Comment ça marche ?
+                        </h2>
+                    </div>
+                    <div
+                        className={
+                            'hidden lg block lg:grid lg:grid-cols-9 lg:w-full'
+                        }
+                    >
+                        <div className='col-start-2 flex justify-center'>
+                            <div
+                                className='
+                            flex items-center justify-center
+                            w-12 h-12 rounded-full
+                            border-2 border-blue-500
+                            font-bold
+                            text-blue-500
+                            text-3xl
+                            bg-rose-50
+                            '
+                            >
+                                1
+                            </div>
+                        </div>
+                        <div className='col-start-3 col-span-2'>
+                            <div className='hidden lg:flex items-center justify-evenly h-full'>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                            </div>
+                        </div>
+                        <div className='col-start-5 flex justify-center'>
+                            <div
+                                className={`flex items-center justify-center
+                                        w-12 h-12 rounded-full
+                                        border-2 border-blue-500
+                                        font-bold
+                                        text-blue-500
+                                        text-3xl
+                                        bg-rose-50
+                                        `}
+                            >
+                                2
+                            </div>
+                        </div>
+                        <div className='col-start-6 col-span-2'>
+                            <div className='hidden lg:flex items-center justify-evenly h-full'>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                            </div>
+                        </div>
+                        <div className='col-start-8 flex justify-center'>
+                            <div
+                                className={`
+                                        flex items-center justify-center
+                                        w-12 h-12 rounded-full
+                                        border-2 border-blue-500
+                                        font-bold
+                                        text-blue-500
+                                        text-3xl
+                                        bg-rose-50
+                                      `}
+                            >
+                                3
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex flex-col gap-8 justify-center items-center lg:flex-row'>
+                        <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                            <div className='flex flex-col gap-3 items-center'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                    Créez votre évenement
+                                </div>
+                                <p className='text-base text-gray-700 lg:text-lg'>
+                                    Créez un évenement pour votre famille ou vos
+                                    amis et invitez-les à le rejoindre
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                            <div className='flex flex-col gap-3 items-center'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                    Discutez des cadeaux
+                                </div>
+                                <p className='text-base text-gray-700 lg:text-lg'>
+                                    Chaque membre a son fil de discussion dédié
+                                    où les autres peuvent partager leurs idées
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                            <div className='flex flex-col gap-3 items-center'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                    Gardez la surprise
+                                </div>
+                                <p className='text-base text-gray-700 lg:text-lg'>
+                                    Vous ne pouvez pas voir les discussions
+                                    concernant vos propres cadeaux
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section className='flex flex-col gap-3 mb-12 w-11/12 justify-center items-center bg-rose-50 border rounded-2xl p-8'>
                     {(!isConnected ||
                         (isConnected && groups && groups?.length < 1)) && (
