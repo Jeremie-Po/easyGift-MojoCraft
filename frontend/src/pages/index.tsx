@@ -1,13 +1,6 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselPrevious,
-    CarouselNext,
-} from '@/components/ui/carousel'
 import { useRouter } from 'next/router'
 import { checkUserConnected } from '@/utils/checkConnection'
 import { useUserGroupsQuery, UserGroupsQuery } from '@/graphql/generated/schema'
@@ -54,14 +47,6 @@ export default function Home() {
 
     const { group1, link1, group2, link2, group3, link3 } = FakeDataGroups()
 
-    const handleButtonClick = () => {
-        if (isConnected) {
-            router.push('/creating-groups')
-        } else {
-            router.push('/auth/login')
-        }
-    }
-
     const container = useRef<HTMLElement | null>(null)
 
     useGSAP(
@@ -86,21 +71,16 @@ export default function Home() {
             <Head>
                 <title>Page d'accueil - Easy Gift</title>
             </Head>
-            <div className='bg-rose-100 flex flex-col justify-center items-center'>
+            <div className='flex flex-col justify-center items-center'>
                 <section
                     ref={container}
-                    className='flex flex-col gap-3 mt-5 mb-12 justify-center items-center w-10/12 lg:mt-20 lg:gap-10'
+                    className='flex flex-col gap-3 mt-5 mb-12 w-11/12 justify-center items-center border rounded-2xl p-8 lg:mt-20 lg:gap-10 bg-rose-50'
                 >
                     <div className='w-full lg:flex lg:justify-center'>
-                        <h1 className='text1 text-3xl font-bold text-primaryRed lg:text-4xl'>
-                            Principe
-                        </h1>
-                    </div>
-                    <div className='w-full flex justify-center'>
-                        <p className='w-full text-lg text-gray-700 font-medium lg:text:xl'>
+                        <h1 className='text1 text-xl font-bold text-primaryBlue lg:text-2xl'>
                             Fini les cadeaux en double et les discussions
-                            secrètes sur WhatsApp !
-                        </p>
+                            secrètes !
+                        </h1>
                     </div>
                     <div className='flex flex-col gap-5 lg:gap-0 lg:flex-row justify-center items-center'>
                         <div className='flex flex-col gap-5 lg:gap-10 lg:w-1/2'>
@@ -143,107 +123,173 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className='flex flex-col gap-10 mb-12 w-10/12 justify-center items-center bg-rose-100'>
-                    <div className='w-full '>
-                        <h2 className='w-4/5 lg:flex lg:justify-center text-3xl md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
+                <section className='flex flex-col gap-8 mb-20 w-11/12 justify-center items-center'>
+                    <div className='w-full flex justify-center'>
+                        <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
                             Comment ça marche ?
                         </h2>
                     </div>
-                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
-                        <div className='flex flex-col gap-3 items-center'>
-                            <div>
-                                <svg
-                                    xmlns='http://www.w3.org/2000/svg'
-                                    fill='none'
-                                    viewBox='0 0 24 24'
-                                    strokeWidth={1.5}
-                                    stroke='currentColor'
-                                    className='size-10 text-primaryRed'
-                                >
-                                    <path
-                                        strokeLinecap='round'
-                                        strokeLinejoin='round'
-                                        d='M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
-                                    />
-                                </svg>
+                    <div
+                        className={
+                            'hidden lg block lg:grid lg:grid-cols-9 lg:w-full'
+                        }
+                    >
+                        <div className='col-start-2 flex justify-center'>
+                            <div
+                                className='
+                            flex items-center justify-center
+                            w-12 h-12 rounded-full
+                            border-2 border-blue-500
+                            font-bold
+                            text-blue-500
+                            text-3xl
+                            bg-rose-50
+                            '
+                            >
+                                1
                             </div>
-                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
-                                1. Créez votre évenement
+                        </div>
+                        <div className='col-start-3 col-span-2'>
+                            <div className='hidden lg:flex items-center justify-evenly h-full'>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
                             </div>
-                            <p className='text-base text-gray-700 lg:text-lg'>
-                                Créez un évenement pour votre famille ou vos
-                                amis et invitez-les à le rejoindre
-                            </p>
+                        </div>
+                        <div className='col-start-5 flex justify-center'>
+                            <div
+                                className={`flex items-center justify-center
+                                        w-12 h-12 rounded-full
+                                        border-2 border-blue-500
+                                        font-bold
+                                        text-blue-500
+                                        text-3xl
+                                        bg-rose-50
+                                        `}
+                            >
+                                2
+                            </div>
+                        </div>
+                        <div className='col-start-6 col-span-2'>
+                            <div className='hidden lg:flex items-center justify-evenly h-full'>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                            </div>
+                        </div>
+                        <div className='col-start-8 flex justify-center'>
+                            <div
+                                className={`
+                                        flex items-center justify-center
+                                        w-12 h-12 rounded-full
+                                        border-2 border-blue-500
+                                        font-bold
+                                        text-blue-500
+                                        text-3xl
+                                        bg-rose-50
+                                      `}
+                            >
+                                3
+                            </div>
                         </div>
                     </div>
-                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
-                        <div className='flex flex-col gap-3 items-center'>
-                            <div>
-                                <svg
-                                    xmlns='http://www.w3.org/2000/svg'
-                                    fill='none'
-                                    viewBox='0 0 24 24'
-                                    strokeWidth={1.5}
-                                    stroke='currentColor'
-                                    className='size-10 text-primaryRed'
-                                >
-                                    <path
-                                        strokeLinecap='round'
-                                        strokeLinejoin='round'
-                                        d='M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155'
-                                    />
-                                </svg>
+                    <div className='grid grid-cols-1 lg:grid-cols-9 lg:w-full w-11/12 gap-8 justify-center items-center'>
+                        <div className='block lg:hidden flex justify-center'>
+                            <div
+                                className='
+                            flex items-center justify-center
+                            w-12 h-12 rounded-full
+                            border-2 border-blue-500
+                            font-bold
+                            text-blue-500
+                            text-3xl
+                            bg-rose-50
+                            '
+                            >
+                                1
                             </div>
-                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
-                                2. Discutez des cadeaux
-                            </div>
-                            <p className='text-base text-gray-700 lg:text-lg'>
-                                Chaque membre a son fil de discussion dédié où
-                                les autres peuvent partager leurs idées
-                            </p>
                         </div>
-                    </div>
-                    <div className='bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
-                        <div className='flex flex-col gap-3 items-center'>
-                            <div>
-                                <svg
-                                    xmlns='http://www.w3.org/2000/svg'
-                                    fill='none'
-                                    viewBox='0 0 24 24'
-                                    strokeWidth={1.5}
-                                    stroke='currentColor'
-                                    className='size-10 text-primaryRed'
-                                >
-                                    <path
-                                        strokeLinecap='round'
-                                        strokeLinejoin='round'
-                                        d='M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z'
-                                    />
-                                </svg>
+                        <div className='lg:col-start-1 lg:col-span-3 bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                            <div className='flex flex-col gap-3 items-center'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                    Créez votre évenement
+                                </div>
+                                <p className='text-base text-gray-700 lg:text-lg'>
+                                    Créez un évenement pour votre famille ou vos
+                                    amis et invitez-les à le rejoindre
+                                </p>
                             </div>
-                            <div className='flex justify-center text-xl sm:text-2xl font-medium'>
-                                3. Gardez la surprise
+                        </div>
+                        <div className='block lg:hidden flex justify-center'>
+                            <div
+                                className='
+                            flex items-center justify-center
+                            w-12 h-12 rounded-full
+                            border-2 border-blue-500
+                            font-bold
+                            text-blue-500
+                            text-3xl
+                            bg-rose-50
+                            '
+                            >
+                                2
                             </div>
-                            <p className='text-base text-gray-700 lg:text-lg'>
-                                Vous ne pouvez pas voir les discussions
-                                concernant vos propres cadeaux
-                            </p>
+                        </div>
+                        <div className='lg:col-start-4 lg:col-span-3 bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                            <div className='flex flex-col gap-3 items-center'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                    Discutez des cadeaux
+                                </div>
+                                <p className='text-base text-gray-700 lg:text-lg'>
+                                    Chaque membre a son fil de discussion dédié
+                                    où les autres peuvent partager leurs idées
+                                </p>
+                            </div>
+                        </div>
+                        <div className='block lg:hidden flex justify-center'>
+                            <div
+                                className='
+                            flex items-center justify-center
+                            w-12 h-12 rounded-full
+                            border-2 border-blue-500
+                            font-bold
+                            text-blue-500
+                            text-3xl
+                            bg-rose-50
+                            '
+                            >
+                                3
+                            </div>
+                        </div>
+                        <div className='lg:col-start-7 lg:col-span-3 bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                            <div className='flex flex-col gap-3 items-center'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                    Gardez la surprise
+                                </div>
+                                <p className='text-base text-gray-700 lg:text-lg'>
+                                    Vous ne pouvez pas voir les discussions
+                                    concernant vos propres cadeaux
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
-                <section className='flex flex-col gap-10 mb-12 w-10/12 justify-center items-center bg-rose-100'>
+                <section className='flex flex-col gap-3 mb-12 w-11/12 justify-center items-center bg-rose-50 border rounded-2xl p-8'>
                     {(!isConnected ||
                         (isConnected && groups && groups?.length < 1)) && (
                         <>
-                            <div className='w-full '>
-                                <h2 className='w-4/5 lg:flex lg:justify-center text-3xl md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
+                            <div className='w-full flex justify-center'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
                                     Retrouves tes événements
                                 </h2>
                             </div>
-                            <p className='w-full lg:flex lg:justify-center text-base text-gray-700 lg:text-lg'>
-                                Voici un exemple d'événements qui ont été créés{' '}
-                            </p>
-                            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 justify-center items-center'>
+                            <div className='flex flex-wrap justify-center lg:justify-evenly gap-10'>
                                 <GroupCard
                                     key='1'
                                     group={group1}
@@ -265,12 +311,12 @@ export default function Home() {
 
                     {isConnected && groups && groups.length > 0 && (
                         <>
-                            <div className='w-full lg:flex lg:justify-center'>
-                                <h2 className='w-4/5 text-3xl sm:text-center md:text-4xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryRed'>
+                            <div className='w-full flex justify-center'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
                                     Mes groupes
                                 </h2>
                             </div>
-                            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 items-center'>
+                            <div className='flex flex-wrap justify-center lg:justify-evenly gap-10'>
                                 {groups.map(group => (
                                     <GroupCard
                                         key={group.id}
