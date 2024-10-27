@@ -53,9 +53,9 @@ export default function FakeDataGroups() {
     const link2 = '/'
     const group2: Group = {
         id: 2,
-        name: 'Cousinade Mai 2025',
+        name: 'Noel amis 2024',
         event_date:
-            'Sat May 17 2025 16:53:48 GMT+0000 (Coordinated Universal Time)',
+            'Tue Dec 24 2024 16:53:48 GMT+0000 (Coordinated Universal Time)',
         avatar: {
             id: 2,
             name: 'Avatar de groupe avec cadeau couleurs arc-en-ciel',
@@ -112,7 +112,7 @@ export default function FakeDataGroups() {
     const link3 = '/'
     const group3: Group = {
         id: 3,
-        name: 'Noel Martin 2024',
+        name: 'Noel famille 2024',
         event_date:
             'Tue Dec 24 2024 16:53:48 GMT+0000 (Coordinated Universal Time)',
         avatar: {

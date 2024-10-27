@@ -297,9 +297,6 @@ export default function Home() {
                                     Retrouves tes événements
                                 </h2>
                             </div>
-                            <p className='w-full lg:flex lg:justify-center text-base text-gray-700 lg:text-lg'>
-                                Voici un exemple d'événements qui ont été créés
-                            </p>
                             <div className='flex flex-wrap justify-center lg:justify-evenly gap-10'>
                                 <GroupCard
                                     key='1'
