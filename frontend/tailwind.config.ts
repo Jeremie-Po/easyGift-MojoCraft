@@ -41,8 +41,10 @@ const config = {
                 red400: '#FB7182',
                 red500: '#F43F5B',
                 red600: '#E3264C',
-                background: 'hsl(var(--background))',
-                foreground: 'hsl(var(--foreground))',
+                background: '#161853',
+                foreground: '#292C6D',
+                backgroundCard: '#FAEDF0',
+                outline: '#EC255A',
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
                     foreground: 'hsl(var(--primary-foreground))',
