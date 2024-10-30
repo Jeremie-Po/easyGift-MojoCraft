@@ -32,7 +32,7 @@ export default function Navbar() {
         fetchPolicy: 'cache-and-network',
     })
     return (
-        <div className={`sticky top-0 bg-rose-100`}>
+        <div className={`sticky top-0 bg-bgNav`}>
             <div className={`flex justify-around md:grid md:grid-cols-3`}>
                 {/*burger menu icon */}
                 <div className={`flex justify-center md:hidden`}>
@@ -56,13 +56,12 @@ export default function Navbar() {
                             {/*burger menu content*/}
                         </DropdownMenuTrigger>
                         {isConnected ? (
-                            <DropdownMenuContent className='w-56 bg-rose-50'>
+                            <DropdownMenuContent className='w-56 bg-beige'>
                                 <DropdownMenuLabel>Compte</DropdownMenuLabel>
-                                <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
                                     <Link href='/mon-profil'>
                                         <DropdownMenuItem
-                                            className={'focus:bg-rose-100'}
+                                            className={'focus:bg-border'}
                                         >
                                             Profil
                                         </DropdownMenuItem>
@@ -70,22 +69,21 @@ export default function Navbar() {
                                 </DropdownMenuGroup>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuLabel
-                                    className={'focus:bg-rose-100'}
+                                    className={'focus:bg-border'}
                                 >
                                     Mes évènements
                                 </DropdownMenuLabel>
-                                <DropdownMenuSeparator />
                                 <DropdownMenuGroup>
                                     <Link href='/groupes'>
                                         <DropdownMenuItem
-                                            className={'focus:bg-rose-100'}
+                                            className={'focus:bg-border'}
                                         >
                                             Liste
                                         </DropdownMenuItem>
                                     </Link>
                                     <Link href='/creating-groups'>
                                         <DropdownMenuItem
-                                            className={'focus:bg-rose-100'}
+                                            className={'focus:bg-border'}
                                         >
                                             Créer
                                         </DropdownMenuItem>
@@ -94,16 +92,16 @@ export default function Navbar() {
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem
                                     onClick={() => logout()}
-                                    className={'focus:bg-rose-100'}
+                                    className={'focus:bg-border'}
                                 >
                                     Déconnexion
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         ) : (
-                            <DropdownMenuContent className='w-56 bg-rose-50'>
+                            <DropdownMenuContent className='w-56 bg-beige'>
                                 <Link href='/auth/login'>
                                     <DropdownMenuItem
-                                        className={'focus:bg-rose-100'}
+                                        className={'focus:bg-border'}
                                     >
                                         Connexion
                                     </DropdownMenuItem>
@@ -116,11 +114,11 @@ export default function Navbar() {
                 <div className={`md:flex md:justify-center md:col-start-1`}>
                     <Link
                         href='/'
-                        className='font-rubik text-2xl text-primaryBlue font-bold flex justify-end items-center md:justify-center md:text-4xl md:tracking-wider'
+                        className='font-rubik text-2xl text-beige font-bold flex justify-end items-center md:justify-center md:text-4xl md:tracking-wider'
                         aria-label='Lien vers la page d’accueil'
                     >
                         <img
-                            src='/images/logo/logo-easy-gift_desktop2.png'
+                            src='/images/logo/logo-easy-gift_desktop3.png'
                             alt="Logo d'easy-gift"
                             className='w-1/4'
                         />
@@ -158,28 +156,36 @@ export default function Navbar() {
                         <DropdownMenuTrigger asChild>
                             <Button variant='virgin'>
                                 <Image
-                                    src='/images/icones/connexion.png'
+                                    src='/images/icones/connexion1.png'
                                     alt='icone de connexion'
                                     width={35}
                                     height={35}
+                                    className='text-beige'
                                 />
                             </Button>
                         </DropdownMenuTrigger>
                         {isConnected ? (
-                            <DropdownMenuContent>
-                                <DropdownMenuItem onClick={() => logout()}>
+                            <DropdownMenuContent className={'bg-beige'}>
+                                <DropdownMenuItem
+                                    onClick={() => logout()}
+                                    className={'focus:bg-border'}
+                                >
                                     Déconnexion
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         ) : (
-                            <DropdownMenuContent>
+                            <DropdownMenuContent className={'bg-beige'}>
                                 <Link href='/auth/login'>
-                                    <DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        className={'focus:bg-border'}
+                                    >
                                         Connexion
                                     </DropdownMenuItem>
                                 </Link>
                                 <Link href='/auth/register'>
-                                    <DropdownMenuItem>
+                                    <DropdownMenuItem
+                                        className={'focus:bg-border'}
+                                    >
                                         Inscription
                                     </DropdownMenuItem>
                                 </Link>

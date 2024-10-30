@@ -9,9 +9,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     const hideNavbar = hideNavbarRoutes.includes(router.pathname)
 
     return (
-        <div className='w-screen min-h-screen bg-rose-200 relative flex flex-col justify-between'>
-            <div className='border-b-2 border-rose-400'>
-                <div className='w-full max-w-screen-2xl mx-auto'>
+        <div className='w-screen min-h-screen background relative flex flex-col justify-between'>
+            <div className='border-b-2 border-outline'>
+                <div className='w-full mx-auto'>
                     {!hideNavbar && <Navbar />}
                 </div>
             </div>
