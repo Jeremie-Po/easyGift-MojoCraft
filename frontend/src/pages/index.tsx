@@ -280,12 +280,12 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className='flex flex-col gap-3 mb-12 w-11/12 justify-center items-center bg-foreground border-2 border-outline rounded-2xl p-8'>
+                <section className='flex flex-col gap-3 mb-12 w-11/12 justify-between items-center bg-foreground border-2 border-outline rounded-2xl p-8'>
                     {(!isConnected ||
                         (isConnected && groups && groups?.length < 1)) && (
                         <>
-                            <div className='w-full flex justify-center'>
-                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryMarron'>
+                            <div className='w-full'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full text-primaryMarron'>
                                     Retrouves tes événements
                                 </h2>
                             </div>
