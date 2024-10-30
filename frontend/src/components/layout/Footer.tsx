@@ -31,13 +31,13 @@ const icons = [
 
 export default function Footer() {
     return (
-        <footer className='w-full bg-red600 h-48 relative bottom-0 left-0 right-0'>
+        <footer className='w-full bg-bgFooter h-48 relative bottom-0 left-0 right-0'>
             <div className='flex justify-center flex-col h-full'>
                 <div className='space-y-1 flex justify-center items-center w-full mt-3'>
                     <img
-                        src='/images/logo/logo-easy-gift-tablet.png'
+                        src='/images/logo/logo-easy-gift_desktop3.png'
                         alt="Logo d'easy-gift"
-                        className='mr-2'
+                        className='mr-2 w-12'
                     />
                     <div>
                         <Link
@@ -56,7 +56,7 @@ export default function Footer() {
                         <div
                             key={icon.id}
                             aria-label={icon.aria}
-                            className='w-10 h-10 bg-bgPrimary rounded-full flex justify-center items-center cursor-pointer text-primaryBlue hover:bg-primaryBlue hover:text-bgPrimary transition-colors duration-200 ease-in-out'
+                            className='w-10 h-10 bg-bgPrimary rounded-full flex justify-center items-center cursor-pointer text-beige hover:bg-primaryBlue hover:text-bgPrimary transition-colors duration-200 ease-in-out'
                         >
                             <svg
                                 xmlns='http://www.w3.org/2000/svg'
@@ -69,7 +69,7 @@ export default function Footer() {
                         </div>
                     ))}
                 </div>
-                <p className='font-medium text-center text-xs text-white py-2 mt-4'>
+                <p className='font-medium text-center text-xs text-beige py-2 mt-4'>
                     Copyright © 2024 Easy Gift, Inc. All rights reserved.
                 </p>
             </div>

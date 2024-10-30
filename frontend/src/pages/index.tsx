@@ -74,10 +74,10 @@ export default function Home() {
             <div className='flex flex-col justify-center items-center'>
                 <section
                     ref={container}
-                    className='flex flex-col gap-3 mt-5 mb-12 w-11/12 justify-center items-center border rounded-2xl p-8 lg:mt-20 lg:gap-10 bg-rose-50'
+                    className='flex flex-col gap-3 mt-5 mb-12 w-11/12 justify-center items-center border-outline border-2 rounded-2xl p-8 lg:mt-20 lg:gap-10 bg-foreground'
                 >
                     <div className='w-full lg:flex lg:justify-center'>
-                        <h1 className='text1 text-xl font-bold text-primaryBlue lg:text-2xl'>
+                        <h1 className='text1 text-xl font-bold text-primaryMarron lg:text-2xl'>
                             Fini les cadeaux en double et les discussions
                             secrètes !
                         </h1>
@@ -125,7 +125,7 @@ export default function Home() {
                 </section>
                 <section className='flex flex-col gap-8 mb-20 w-11/12 justify-center items-center'>
                     <div className='w-full flex justify-center'>
-                        <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
+                        <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryMarron'>
                             Comment ça marche ?
                         </h2>
                     </div>
@@ -139,11 +139,11 @@ export default function Home() {
                                 className='
                             flex items-center justify-center
                             w-12 h-12 rounded-full
-                            border-2 border-blue-500
+                            border-outline border-2
                             font-bold
-                            text-blue-500
+                            text-primaryMarron
                             text-3xl
-                            bg-rose-50
+                            bg-foreground
                             '
                             >
                                 1
@@ -151,23 +151,23 @@ export default function Home() {
                         </div>
                         <div className='col-start-3 col-span-2'>
                             <div className='hidden lg:flex items-center justify-evenly h-full'>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
                             </div>
                         </div>
                         <div className='col-start-5 flex justify-center'>
                             <div
                                 className={`flex items-center justify-center
                                         w-12 h-12 rounded-full
-                                        border-2 border-blue-500
+                                        border-2 border-outline
                                         font-bold
-                                        text-blue-500
+                                        text-primaryMarron
                                         text-3xl
-                                        bg-rose-50
+                                        bg-foreground
                                         `}
                             >
                                 2
@@ -175,12 +175,12 @@ export default function Home() {
                         </div>
                         <div className='col-start-6 col-span-2'>
                             <div className='hidden lg:flex items-center justify-evenly h-full'>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
-                                <div className='w-2 h-2 rounded-full bg-blue-500'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
+                                <div className='w-2 h-2 rounded-full bg-primaryMarron'></div>
                             </div>
                         </div>
                         <div className='col-start-8 flex justify-center'>
@@ -188,11 +188,11 @@ export default function Home() {
                                 className={`
                                         flex items-center justify-center
                                         w-12 h-12 rounded-full
-                                        border-2 border-blue-500
+                                        border-2 border-outline
                                         font-bold
-                                        text-blue-500
+                                        text-primaryMarron
                                         text-3xl
-                                        bg-rose-50
+                                        bg-foreground
                                       `}
                             >
                                 3
@@ -205,19 +205,19 @@ export default function Home() {
                                 className='
                             flex items-center justify-center
                             w-12 h-12 rounded-full
-                            border-2 border-blue-500
+                            border-2 border-outline
                             font-bold
-                            text-blue-500
+                            text-primaryMarron
                             text-3xl
-                            bg-rose-50
+                            bg-foreground
                             '
                             >
                                 1
                             </div>
                         </div>
-                        <div className='lg:col-start-1 lg:col-span-3 bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                        <div className='lg:col-start-1 lg:col-span-3 bg-foreground border-2 border-outline w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
                             <div className='flex flex-col gap-3 items-center'>
-                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium text-primaryMarron'>
                                     Créez votre évenement
                                 </div>
                                 <p className='text-base text-gray-700 lg:text-lg'>
@@ -231,19 +231,19 @@ export default function Home() {
                                 className='
                             flex items-center justify-center
                             w-12 h-12 rounded-full
-                            border-2 border-blue-500
+                            border-2 border-outline
                             font-bold
-                            text-blue-500
+                            text-primaryMarron
                             text-3xl
-                            bg-rose-50
+                            bg-foreground
                             '
                             >
                                 2
                             </div>
                         </div>
-                        <div className='lg:col-start-4 lg:col-span-3 bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                        <div className='lg:col-start-4 lg:col-span-3 bg-foreground border-2 border-outline w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
                             <div className='flex flex-col gap-3 items-center'>
-                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium text-primaryMarron'>
                                     Discutez des cadeaux
                                 </div>
                                 <p className='text-base text-gray-700 lg:text-lg'>
@@ -257,19 +257,19 @@ export default function Home() {
                                 className='
                             flex items-center justify-center
                             w-12 h-12 rounded-full
-                            border-2 border-blue-500
+                            border-2 border-outline
                             font-bold
-                            text-blue-500
+                            text-primaryMarron
                             text-3xl
-                            bg-rose-50
+                            bg-foreground
                             '
                             >
                                 3
                             </div>
                         </div>
-                        <div className='lg:col-start-7 lg:col-span-3 bg-rose-50 w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
+                        <div className='lg:col-start-7 lg:col-span-3 bg-foreground border-2 border-outline w-full flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl lg:min-h-60'>
                             <div className='flex flex-col gap-3 items-center'>
-                                <div className='flex justify-center text-xl sm:text-2xl font-medium'>
+                                <div className='flex justify-center text-xl sm:text-2xl font-medium text-primaryMarron'>
                                     Gardez la surprise
                                 </div>
                                 <p className='text-base text-gray-700 lg:text-lg'>
@@ -280,12 +280,12 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <section className='flex flex-col gap-3 mb-12 w-11/12 justify-center items-center bg-rose-50 border rounded-2xl p-8'>
+                <section className='flex flex-col gap-3 mb-12 w-11/12 justify-center items-center bg-foreground border-2 border-outline rounded-2xl p-8'>
                     {(!isConnected ||
                         (isConnected && groups && groups?.length < 1)) && (
                         <>
                             <div className='w-full flex justify-center'>
-                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBeige'>
                                     Retrouves tes événements
                                 </h2>
                             </div>
