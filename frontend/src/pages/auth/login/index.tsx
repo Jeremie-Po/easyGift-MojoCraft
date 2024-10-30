@@ -67,7 +67,7 @@ function Login() {
             <div>
                 {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
             </div>
-            <div className='bg-rose-100 h-screen flex'>
+            <div className='bg-foreground h-screen flex'>
                 <img
                     src='/images/img-pages/top-view-presents-with-tag-copy-space.png'
                     alt='pile de cadeaux'
@@ -97,11 +97,11 @@ function Login() {
                     </Link>
                     <Link
                         href={'/'}
-                        className='font-rubik text-4xl text-primaryBlue font-bold flex justify-center items-center md:justify-center md:text-4xl md:tracking-wider'
+                        className='font-rubik text-4xl text-primaryMarron font-bold flex justify-center items-center md:justify-center md:text-4xl md:tracking-wider'
                         aria-label='Lien vers la page d’accueil'
                     >
                         <img
-                            src='/images/logo/logo-easy-gift_desktop2.png'
+                            src='/images/logo/logo-easy-gift_desktop4.png'
                             alt="Logo d'easy-gift"
                             className='w-1/4'
                         />
@@ -120,7 +120,7 @@ function Login() {
                                     Email
                                 </label>
                                 <Input
-                                    className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
+                                    className='w-full border border-border rounded-md py-2 px-3 focus:outline-none focus:border text-primaryMarron'
                                     data-testid='login-email'
                                     id='email'
                                     type='email'
@@ -136,7 +136,7 @@ function Login() {
                                     Mot de passe
                                 </label>
                                 <Input
-                                    className='w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500'
+                                    className='w-full border border-border rounded-md py-2 px-3 focus:outline-none focus:border text-primaryMarron'
                                     data-testid='login-password'
                                     id='password'
                                     type='password'
@@ -144,7 +144,7 @@ function Login() {
                                     required
                                 />
                             </div>
-                            <div className='mb-6 text-blue-500 flex justify-end'>
+                            <div className='mb-6 text-primaryMarron flex justify-end'>
                                 <Link
                                     href={'/auth/forgot-password'}
                                     className='hover:underline'
@@ -155,12 +155,12 @@ function Login() {
                             <Button
                                 data-testid='login-button'
                                 type='submit'
-                                className='bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full'
+                                className='bg-primaryMarron hover:underline text-white font-semibold rounded-md py-2 px-4 w-full'
                             >
                                 Connexion
                             </Button>
                         </form>
-                        <div className='mt-6 text-blue-500 text-center'>
+                        <div className='mt-6 text-primaryMarron text-center'>
                             <Link
                                 href={'/auth/register'}
                                 className='hover:underline'

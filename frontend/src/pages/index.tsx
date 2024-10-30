@@ -285,7 +285,7 @@ export default function Home() {
                         (isConnected && groups && groups?.length < 1)) && (
                         <>
                             <div className='w-full flex justify-center'>
-                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBeige'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryMarron'>
                                     Retrouves tes événements
                                 </h2>
                             </div>
@@ -312,7 +312,7 @@ export default function Home() {
                     {isConnected && groups && groups.length > 0 && (
                         <>
                             <div className='w-full flex justify-center'>
-                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryBlue'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryMarron'>
                                     Mes groupes
                                 </h2>
                             </div>
