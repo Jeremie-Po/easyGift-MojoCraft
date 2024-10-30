@@ -79,7 +79,7 @@ export default function Home() {
                     <div className='w-full lg:flex lg:justify-center'>
                         <h1 className='text1 text-xl font-bold text-primaryMarron lg:text-2xl'>
                             Fini les cadeaux en double et les discussions
-                            secrètes !
+                            secrètes sur WhatsApp !
                         </h1>
                     </div>
                     <div className='flex flex-col gap-5 lg:gap-0 lg:flex-row justify-center items-center'>

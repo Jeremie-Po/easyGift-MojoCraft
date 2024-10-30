@@ -133,19 +133,19 @@ export default function Navbar() {
                         <nav className='flex justify-around h-full items-center'>
                             <Link
                                 href='/groupes'
-                                className={`${currentPath === '/groupes' ? 'font-bold' : ''} hover:bg-rose-200 px-4 h-full flex items-center`}
+                                className={`${currentPath === '/groupes' ? 'font-bold' : ''} hover:underline px-4 h-full flex items-center`}
                             >
                                 MES ÉVÉNEMENTS
                             </Link>
                             <Link
                                 href='/creating-groups'
-                                className={`${currentPath === '/creating-groups' ? 'font-bold' : ''} hover:bg-rose-200 px-4 h-full flex items-center`}
+                                className={`${currentPath === '/creating-groups' ? 'font-bold' : ''} hover:underline px-4 h-full flex items-center`}
                             >
                                 NOUVEL ÉVÉNEMENT
                             </Link>
                             <Link
                                 href='/mon-profil'
-                                className={`${currentPath === '/mon-profil' ? 'font-bold' : ''} hover:bg-rose-200 px-4 h-full flex items-center`}
+                                className={`${currentPath === '/mon-profil' ? 'font-bold' : ''} hover:underline px-4 h-full flex items-center`}
                             >
                                 MON PROFIL
                             </Link>
