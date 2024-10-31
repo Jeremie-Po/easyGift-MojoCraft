@@ -110,7 +110,7 @@ function Register() {
                         <span>Easy Gift</span>
                     </Link>
                     <section className={`w-80`}>
-                        <h1 className='text-2xl font-semibold mb-4'>
+                        <h1 className='text-2xl font-semibold mb-4 text-primaryMarron'>
                             Inscription
                         </h1>
                         <div>
@@ -132,7 +132,7 @@ function Register() {
                             <div className='mb-4'>
                                 <label
                                     htmlFor='pseudo'
-                                    className='block text-gray-600'
+                                    className='block text-primaryMarron'
                                 >
                                     Pseudo
                                 </label>
@@ -147,7 +147,7 @@ function Register() {
                             <div className='mb-4'>
                                 <label
                                     htmlFor='email'
-                                    className='block text-gray-600'
+                                    className='block text-primaryMarron'
                                 >
                                     Email{' '}
                                     <span className='text-red-600'>*</span>
@@ -164,7 +164,7 @@ function Register() {
                             <div className='mb-8'>
                                 <label
                                     htmlFor='password'
-                                    className='block text-gray-600'
+                                    className='block text-primaryMarron'
                                 >
                                     Mot de passe{' '}
                                     <span className='text-red-600'>*</span>

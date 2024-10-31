@@ -125,7 +125,7 @@ export default function Home() {
                 </section>
                 <section className='flex flex-col gap-8 mb-20 w-11/12 justify-center items-center'>
                     <div className='w-full flex justify-center'>
-                        <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryMarron'>
+                        <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full text-primaryMarron'>
                             Comment ça marche ?
                         </h2>
                     </div>
@@ -312,7 +312,7 @@ export default function Home() {
                     {isConnected && groups && groups.length > 0 && (
                         <>
                             <div className='w-full flex justify-center'>
-                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full 2xl:mt-32 text-primaryMarron'>
+                                <h2 className='w-4/5 flex justify-center text-xl md:text-2xl 4xl:text-5xl font-bold lg:w-full text-primaryMarron'>
                                     Mes groupes
                                 </h2>
                             </div>

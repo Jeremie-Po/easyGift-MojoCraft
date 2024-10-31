@@ -108,14 +108,14 @@ function Login() {
                         <span>Easy Gift</span>
                     </Link>
                     <section className={`w-80`}>
-                        <h1 className='text-2xl font-semibold mb-4'>
+                        <h1 className='text-2xl font-semibold mb-4 text-primaryMarron'>
                             Connexion
                         </h1>
                         <form onSubmit={handleSubmit}>
                             <div className='mb-4'>
                                 <label
                                     htmlFor='email'
-                                    className='block text-gray-600'
+                                    className='block text-primaryMarron'
                                 >
                                     Email
                                 </label>
@@ -131,7 +131,7 @@ function Login() {
                             <div className='mb-4'>
                                 <label
                                     htmlFor='password'
-                                    className='block text-gray-600'
+                                    className='block text-primaryMarron'
                                 >
                                     Mot de passe
                                 </label>
