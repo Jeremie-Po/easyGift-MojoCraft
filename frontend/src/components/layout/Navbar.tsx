@@ -32,7 +32,7 @@ export default function Navbar() {
         fetchPolicy: 'cache-and-network',
     })
     return (
-        <div className={`sticky top-0 bg-bgNav`}>
+        <div className={`sticky top-0`}>
             <div className={`flex justify-around md:grid md:grid-cols-3`}>
                 {/*burger menu icon */}
                 <div className={`flex justify-center md:hidden`}>

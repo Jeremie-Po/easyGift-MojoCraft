@@ -25,7 +25,7 @@ export default function Profile() {
                 <title>Mes groupes - Easy Gift</title>
             </Head>
 
-            <section className='w-full h-full flex-grow flex flex-col gap-6 pb-6 my-10 justify-center items-center text-primaryMarron lg:min-h-screen lg:my-12 2xl:my-20'>
+            <section className='w-full mt-5 flex-grow flex flex-col gap-6 pb-6 justify-center items-center text-primaryMarron lg:mt-20'>
                 {data?.userGroups?.length === 0 ? (
                     <div className='flex flex-col items-center mt-6'>
                         <p className='text-md mb-3 md:mb-4 lg:mb-6 xl:mb-8 2xl:mb-10 2xl:text-xl'>
