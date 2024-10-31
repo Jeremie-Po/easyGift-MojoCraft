@@ -83,7 +83,8 @@ export default function CreatingGroups() {
             <Head>
                 <title>Page de création d'un groupe - Easy Gift</title>
             </Head>
-            <div className='min-h-screen flex flex-col justify-center items-center'>
+            <section className='flex flex-col gap-3 mt-5 mb-12 w-11/12 justify-center items-center border-outline border-2 rounded-2xl p-8 lg:mt-20 lg:gap-10 bg-foreground'>
+                {/*<div className='min-h-screen flex flex-col justify-center items-center'>*/}
                 <h1 className='text-xl lg:text-2xl 2xl:text-3xl font-bold text-primaryBlue mb-10'>
                     Créer un groupe
                 </h1>
@@ -208,7 +209,7 @@ export default function CreatingGroups() {
                             )
                         )}
                 </form>
-            </div>
+            </section>
         </>
     )
 }
