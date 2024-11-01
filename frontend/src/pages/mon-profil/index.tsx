@@ -33,18 +33,18 @@ export default function Profile() {
             <Head>
                 <title>Mon profil - Easy Gift</title>
             </Head>
-            <div className='w-full mt-5 flex-grow flex flex-col gap-6 pb-6 justify-center items-center text-primaryMarron lg:mt-20'>
-                <section className='flex flex-col gap-6 mb-12 w-11/12 justify-between items-center bg-foreground border-2 border-border rounded-2xl p-8'>
-                    <div className='w-4/5'>
+            <section className='w-full mt-5 flex-grow flex flex-col gap-6 pb-6 justify-center items-center text-primaryMarron lg:mt-20'>
+                <div className='flex flex-col gap-6 mb-12 w-11/12 justify-between items-center bg-foreground border-2 border-border rounded-2xl p-8'>
+                    <div className='w-full md:w-4/5'>
                         <h1 className='flex justify-center text-xl mb-4 md:text-2xl lg:text-3xl 2xl:text-4xl font-bold lg:mb-8'>
                             Informations personnelles
                         </h1>
-                        <div className='w-full bg-background p-8 border border-border mb-5 rounded-2xl'>
+                        <div className='w-full bg-background p-8 border border-border rounded-2xl'>
                             <p className='text-md text-left mb-3 md:mb-4 lg:mb-6 xl:mb-8 2xl:mb-10 2xl:text-xl'>
                                 Gère les informations de ton compte Easy Gift.
                             </p>
-                            <div className='flex justify-between items-center'>
-                                <div className='w-3/4'>
+                            <div className='flex flex-col gap-6 md:flex-row justify-between items-center'>
+                                <div className='w-full md:w-3/4'>
                                     <div className='flex items-center h-9 md:h-11 lg:h-12 2xl:h-14'>
                                         <p className='text-base font-semibold w-32'>
                                             Pseudo
@@ -78,7 +78,7 @@ export default function Profile() {
                                         </a>
                                     </div>
                                 </div>
-                                <div className='mb-3 2xl:mb-7 flex justify-center w-1/4'>
+                                <div className='mb-3 2xl:mb-7 flex justify-center w-full md:w-1/4'>
                                     <div
                                         className='relative w-24 h-24 lg:w-28 lg:h-28 2xl:w-32 2xl:h-32'
                                         onClick={() =>
@@ -111,8 +111,8 @@ export default function Profile() {
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
 
             {isModalAvatarOpen && (
                 <ModalModifyAvatar

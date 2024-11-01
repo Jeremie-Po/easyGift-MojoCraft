@@ -74,12 +74,12 @@ export default function ModalModifyPassword({
             <div className='fixed inset-0 bg-black/50 z-50'>
                 <div
                     ref={modalContentRef}
-                    className='bg-white p-5 w-9/12 md:w-7/12 lg:w-4/12 2xl:w-3/12 rounded-lg'
+                    className='bg-background border border-border p-5 min-w-96 rounded-lg'
                     style={modalStyles}
                 >
                     <div className='p-3'>
                         <div className='flex justify-between '>
-                            <p className='mb-9 text-lg text-left md:mb-10 md:text-xl text-primaryBlue'>
+                            <p className='mb-9 text-lg text-left md:mb-10 md:text-xl text-primaryMarron'>
                                 Modifier le mot de passe
                             </p>
                             <svg
@@ -96,45 +96,50 @@ export default function ModalModifyPassword({
                         </div>
 
                         <div className='flex justify-center'>
-                            <form className='gap-2' onSubmit={onConfirm}>
-                                <div className='grid gap-1'>
-                                    <label
-                                        htmlFor='oldPassword'
-                                        className='text-sm font-medium text-muted-foreground'
-                                    >
-                                        Entrez votre ancien mot de passe
-                                    </label>
-                                    <Input
-                                        id='oldPassword'
-                                        type='password'
-                                        name='oldPassword'
-                                        value={oldPassword}
-                                        onChange={e =>
-                                            setOldPassword(e.target.value)
-                                        }
-                                        className='mb-6'
-                                    />
-                                </div>
+                            <form
+                                className='gap-2 w-full flex flex-col items-center'
+                                onSubmit={onConfirm}
+                            >
+                                <div className='flex flex-col w-full sm:w-3/4'>
+                                    <div>
+                                        <label
+                                            htmlFor='oldPassword'
+                                            className='text-sm font-medium text-primaryMarron'
+                                        >
+                                            Entrez votre ancien mot de passe
+                                        </label>
+                                        <Input
+                                            id='oldPassword'
+                                            type='password'
+                                            name='oldPassword'
+                                            value={oldPassword}
+                                            onChange={e =>
+                                                setOldPassword(e.target.value)
+                                            }
+                                            className='mb-6 border border-border text-primaryMarron'
+                                        />
+                                    </div>
 
-                                <div className='grid gap-1'>
-                                    <label
-                                        htmlFor='newPassword'
-                                        className='text-sm font-medium text-muted-foreground'
-                                    >
-                                        Entrez votre nouveau mot de passe
-                                    </label>
-                                    <Input
-                                        id='newPassword'
-                                        type='password'
-                                        name='newPassword'
-                                        value={newPassword}
-                                        onChange={e =>
-                                            setNewPassword(e.target.value)
-                                        }
-                                    />
+                                    <div>
+                                        <label
+                                            htmlFor='newPassword'
+                                            className='text-sm font-medium text-primaryMarron'
+                                        >
+                                            Entrez votre nouveau mot de passe
+                                        </label>
+                                        <Input
+                                            id='newPassword'
+                                            type='password'
+                                            name='newPassword'
+                                            value={newPassword}
+                                            onChange={e =>
+                                                setNewPassword(e.target.value)
+                                            }
+                                            className='border border-border text-primaryMarron'
+                                        />
+                                    </div>
                                 </div>
-
-                                <div className='flex justify-center'>
+                                <div className='w-full flex justify-end'>
                                     <Button type='submit' className='mt-10'>
                                         {'Modifier'}
                                     </Button>
