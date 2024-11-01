@@ -139,11 +139,11 @@ export default function ModalModifyAvatar({
             <div className='fixed inset-0 bg-black/50 z-50'>
                 <div
                     ref={modalContentRef}
-                    className='w-10/12 bg-white p-5 xl:max-w-6/12 rounded-lg'
+                    className='w-10/12 bg-background p-5 xl:max-w-6/12 rounded-lg border-border border '
                     style={modalStyles}
                 >
                     <div className='flex justify-between'>
-                        <p className='mb-9 text-lg text-left md:mb-10 md:text-xl text-primaryBlue'>
+                        <p className='mb-9 text-lg text-left md:mb-10 md:text-xl text-primaryMarron'>
                             Sélectionne ton nouvel avatar
                         </p>
                         <svg
@@ -174,7 +174,9 @@ export default function ModalModifyAvatar({
                             />
                         ))}
                     </div>
-                    <Button onClick={() => onConfirm()}>Sauvegarder</Button>
+                    <div className='flex justify-end w-full'>
+                        <Button onClick={() => onConfirm()}>Sauvegarder</Button>
+                    </div>
                 </div>
             </div>
         </div>

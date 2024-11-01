@@ -83,7 +83,7 @@ export default function CreatingGroups() {
             <Head>
                 <title>Page de création d'un événement - Easy Gift</title>
             </Head>
-            <section className='w-full h-full flex-grow flex flex-col gap-6 pb-6 my-10 justify-center items-center text-primaryMarron lg:min-h-screen lg:my-12 2xl:my-20'>
+            <div className='w-full mt-5 flex-grow flex flex-col gap-6 pb-6 justify-center items-center text-primaryMarron lg:mt-20'>
                 <section className='flex flex-col gap-6 mb-12 w-11/12 justify-between items-center bg-foreground border-2 border-border rounded-2xl p-8'>
                     {' '}
                     {/*<div className='min-h-screen flex flex-col justify-center items-center'>*/}
@@ -213,7 +213,7 @@ export default function CreatingGroups() {
                             )}
                     </form>
                 </section>
-            </section>
+            </div>
         </>
     )
 }

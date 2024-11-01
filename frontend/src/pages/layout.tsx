@@ -10,8 +10,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
     return (
         <div className='w-screen min-h-screen background relative flex flex-col justify-between'>
-            <div className='border-b-2 border-outline'>
-                <div className='w-full mx-auto'>
+            <div className='border-b-2 border-outline bg-bgNav'>
+                <div className='w-full max-w-screen-2xl mx-auto'>
                     {!hideNavbar && <Navbar />}
                 </div>
             </div>

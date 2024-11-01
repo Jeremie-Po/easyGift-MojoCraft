@@ -97,12 +97,12 @@ export default function ModalModifyDetails({
             <div className='fixed inset-0 bg-black/50 z-50'>
                 <div
                     ref={modalContentRef}
-                    className='bg-white p-5 w-9/12 md:w-7/12 lg:w-4/12 2xl:w-3/12 rounded-lg'
+                    className='bg-background border border-border p-5 min-w-96 rounded-lg'
                     style={modalStyles}
                 >
                     <div className='p-3'>
                         <div className='flex justify-between'>
-                            <p className='mb-9 text-lg text-left md:mb-10 md:text-xl text-primaryBlue'>
+                            <p className='mb-9 text-lg text-left md:mb-10 md:text-xl text-primaryMarron'>
                                 Modifier mes informations
                             </p>
                             <svg
@@ -120,43 +120,51 @@ export default function ModalModifyDetails({
                         </div>
 
                         <div className='flex justify-center'>
-                            <form className='gap-2' onSubmit={onConfirm}>
-                                <div className='grid gap-1'>
-                                    <label
-                                        htmlFor='pseudo'
-                                        className='text-sm font-medium text-muted-foreground'
-                                    >
-                                        Choisissez un nouveau pseudo
-                                    </label>
-                                    <Input
-                                        id='pseudo'
-                                        type='text'
-                                        name='pseudo'
-                                        value={pseudo}
-                                        onChange={e =>
-                                            setPseudo(e.target.value)
-                                        }
-                                        className='mb-6'
-                                    />
+                            <form
+                                className='gap-2 w-full flex flex-col items-center'
+                                onSubmit={onConfirm}
+                            >
+                                <div className='flex flex-col w-full sm:w-3/4'>
+                                    <div>
+                                        <label
+                                            htmlFor='pseudo'
+                                            className='text-sm font-medium text-primaryMarron'
+                                        >
+                                            Choisissez un nouveau pseudo
+                                        </label>
+                                        <Input
+                                            id='pseudo'
+                                            type='text'
+                                            name='pseudo'
+                                            value={pseudo}
+                                            onChange={e =>
+                                                setPseudo(e.target.value)
+                                            }
+                                            className='border border-border text-primaryMarron mb-6'
+                                        />
+                                    </div>
+
+                                    <div>
+                                        <label
+                                            htmlFor='email'
+                                            className='text-sm font-medium text-primaryMarron'
+                                        >
+                                            Modifier votre email
+                                        </label>
+                                        <Input
+                                            id='email'
+                                            type='email'
+                                            name='email'
+                                            value={email}
+                                            onChange={e =>
+                                                setEmail(e.target.value)
+                                            }
+                                            className='border border-border text-primaryMarron'
+                                        />
+                                    </div>
                                 </div>
 
-                                <div className='grid gap-1'>
-                                    <label
-                                        htmlFor='email'
-                                        className='text-sm font-medium text-muted-foreground'
-                                    >
-                                        Modifier votre email
-                                    </label>
-                                    <Input
-                                        id='email'
-                                        type='email'
-                                        name='email'
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
-                                    />
-                                </div>
-
-                                <div className='mb-4'>
+                                <div>
                                     {errorMessages &&
                                         errorMessages.map((item, index) =>
                                             Object.values(item).map(
@@ -171,7 +179,7 @@ export default function ModalModifyDetails({
                                             )
                                         )}
                                 </div>
-                                <div className='flex justify-center'>
+                                <div className='w-full flex justify-end'>
                                     <Button type='submit' className='mt-10'>
                                         {'Modifier'}
                                     </Button>
