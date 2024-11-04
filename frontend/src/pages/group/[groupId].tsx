@@ -38,15 +38,15 @@ export default function GroupDetails() {
             <Head>
                 <title>Groupe {group?.name} - Easy Gift</title>
             </Head>
-            <section className='w-full h-full flex-grow flex flex-col  gap-6 pb-6 my-10 justify-center items-center lg:min-h-screen lg:my-12 2xl:my-20'>
+            <section className='bg-foreground w-full h-full flex-grow flex flex-col text-primaryMarron gap-6 pb-6 my-10 justify-center items-center lg:min-h-screen lg:my-12 2xl:my-20 border-2 border-outline rounded-2xl p-8'>
                 <div className='flex flex-col gap-3 justify-between mx-auto w-10/12 md:max-w-2xl lg:max-w-4xl xl:max-w-[1100px]'>
-                    <h1 className='text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold text-primaryBlue lg:mb-8'>
+                    <h1 className='text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold text-primaryMarron lg:mb-8'>
                         Groupe {group?.name}
                     </h1>
-                    <p className='text-md 2xl:text-xl'>
+                    <p className='text-md 2xl:text-xl text-primaryMarron'>
                         Gère les informations de ton groupe Easy Gift.
                     </p>
-                    <div className='bg-white flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
+                    <div className='bg-background flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
                         <div className='flex flex-col gap-8 items-center sm:items-start sm:flex-row sm:gap-16 sm:justify-between'>
                             <div className='shrink sm:w-1/2 sm:max-w-lg'>
                                 <div>
@@ -67,7 +67,7 @@ export default function GroupDetails() {
                                         className='absolute inset-0 w-24 h-24 lg:w-28 lg:h-28 2xl:w-32 2xl:h-32 rounded-full mr-2 border-solid border-4 border-primaryRed'
                                         alt={group?.avatar?.name}
                                     />
-                                    <div className='absolute inset-0 rounded-full flex justify-center items-center text-2xl text-primaryBlue font-semibold opacity-0 hover:opacity-100 duration-300 bg-stone-100 bg-opacity-75'>
+                                    <div className='absolute inset-0 rounded-full flex justify-center items-center text-2xl font-semibold opacity-0 hover:opacity-100 duration-300 bg-stone-100 bg-opacity-75'>
                                         Modifier
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@ export default function GroupDetails() {
                         </div>
                     </div>
 
-                    <div className='bg-white flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
+                    <div className='bg-background flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
                         <div className='flex flex-col gap-8 items-center sm:items-start sm:flex-row sm:gap-16 sm:justify-between'>
                             <div className='shrink sm:w-1/2 sm:max-w-lg'>
                                 <div>
@@ -121,7 +121,7 @@ export default function GroupDetails() {
                                     </div>
                                     <div className='flex sm:justify-end'>
                                         <Button
-                                            className='bg-primaryBlue text-white px-4 py-2 rounded mt-10'
+                                            className='text-white px-4 py-2 rounded mt-10'
                                             onClick={() => setShowModal(true)}
                                         >
                                             Modifier mes informations
@@ -144,7 +144,7 @@ export default function GroupDetails() {
                         </div>
                     </div>
 
-                    <div className='bg-white flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
+                    <div className='bg-background flex flex-col gap-10 p-8 sm:rounded-xl shadow-2xl'>
                         <div className='flex flex-col gap-8 items-center sm:items-start sm:flex-row sm:gap-16 sm:justify-between'>
                             <div className='shrink sm:w-1/2 sm:max-w-lg'>
                                 <div>
