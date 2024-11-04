@@ -43,7 +43,7 @@ export default function ProfileCard({
 
     return (
         <div className='flex justify-between w-full border rounded-2xl transition ease-in-out hover:-translate-y-1 hover:scale-120 duration-300'>
-            <div className='flex m-3 lg:min-w-72 items-center gap-3 p-2 '>
+            <div className='flex m-3 items-center gap-3 p-2 '>
                 <img
                     src={userToGroup.user.avatar?.url}
                     className='w-10 h-10 rounded-full border-solid border-2 border-primaryRed'
