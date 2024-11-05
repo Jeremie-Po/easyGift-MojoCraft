@@ -40,7 +40,7 @@ const DiscussionsPage = () => {
     return (
         <>
             <div className='absolute left-0 top-0 w-1 h-full z-10'></div>
-            <section className='w-full max-h-[93vh] h-screen flex flex-col overflow-y-auto md:flex-grow md:flex md:flex-row'>
+            <section className='w-full max-h-[93vh] h-screen flex flex-col overflow-y-auto md:flex-grow md:flex md:flex-row text-primaryMarron'>
                 <MenuDiscussions
                     isMenuHidden={isMenuHidden}
                     toggleMenu={toggleMenu}
