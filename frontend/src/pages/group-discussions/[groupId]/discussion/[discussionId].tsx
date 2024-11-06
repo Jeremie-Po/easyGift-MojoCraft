@@ -31,14 +31,19 @@ const DiscussionsPage = () => {
         <>
             <div className='absolute left-0 top-0 w-1 h-full z-10'></div>
             <section className='text-primaryMarron w-full max-h-[93vh] h-screen flex flex-col overflow-y-auto md:flex-grow md:flex md:flex-row'>
-                <div>
-                    {showMessages ? 'Messages' : 'pas de messages'}{' '}
-                    {showDiscussions ? 'Discussions' : 'pas de discussions'}
-                </div>
                 {showDiscussions && (
                     <Discussions switchComponent={switchComponent} />
                 )}
-                {showMessages && <EspaceDiscussion groupId={Number(groupId)} />}
+                {showMessages && (
+                    <EspaceDiscussion
+                        groupId={Number(groupId)}
+                        switchComponent={switchComponent}
+                    />
+                )}
+                {/*<EspaceDiscussion*/}
+                {/*    groupId={Number(groupId)}*/}
+                {/*    switchComponent={switchComponent}*/}
+                {/*/>*/}
             </section>
         </>
     )

@@ -11,7 +11,12 @@ import { useRouter } from 'next/router'
 import { useIntersectionObserver } from '@/hook/useIntersectionObserver'
 import { Button } from '../ui/button'
 
-const EspaceDiscussion = ({}: { groupId: number }) => {
+const EspaceDiscussion = ({
+    switchComponent,
+}: {
+    switchComponent: any
+    groupId: number
+}) => {
     const router = useRouter()
     const { discussionId } = router.query
     const { userData } = useUserData()
@@ -154,55 +159,72 @@ const EspaceDiscussion = ({}: { groupId: number }) => {
         refetch()
     }, [refetch, selectedDiscussionId])
 
+    console.log('MESSAGES', messages)
     return (
         <div
-            className={`hidden md:w-7/12 md:flex md:flex-grow md:justify-center md:items-center transition-all duration-1000 ease-in-out}`}
+            className={'flex flex-col justify-center items-center w-full gap-3'}
         >
+            <Button>
+                <div onClick={switchComponent}>
+                    Retour aux choix des discussions
+                </div>
+            </Button>
             <div
-                className={`hidden h-full md:w-7/12 md:flex md:flex-grow md:justify-center md:items-center transition-all duration-1000 ease-in-out`}
+                className={`bg-bgNav flex justify-center items-center w-11/12 h-full border border-border rounded-2xl`}
             >
-                <div className='w-full h-full relative mx-10 p-3 rounded-lg'>
+                <div className='flex flex-col rounded-lg w-11/12'>
                     <ul
-                        className='  absolute bottom-10 pb-5 pt-20 w-full max-h-full overflow-y-scroll gap-4 flex-col flex right-1 '
+                        className=''
                         //@ts-ignore
                         ref={messagesContainerRef}
                     >
                         {canShowIntersector && canGetMore ? (
-                            <div
-                                ref={ref}
-                                className=' absolute w-full h-2/5 p-3'
-                            />
+                            <div ref={ref} className='' />
                         ) : (
                             <p className='font-semibold w-full text-center pb-4'>
                                 Début de la discussion
                             </p>
                         )}
-                        {messages.map(message => (
-                            <Message key={message.id} message={message} />
-                        ))}
+                        <div className={'flex flex-col gap-5'}>
+                            {messages.map(message => (
+                                <Message key={message.id} message={message} />
+                            ))}
+                        </div>
                     </ul>
-
-                    <form
-                        className='absolute bottom-0 flex w-full items-center justify-evenly p-3'
-                        onSubmit={handleSendMessage}
-                    >
-                        <input
-                            className='w-3/6 p-2 rounded-md'
-                            type='text'
-                            value={content}
-                            onChange={e => setContent(e.target.value)}
-                        />
-                        <Button
-                            disabled={
-                                !content.length ||
-                                content.split(' ').join('').length === 0
-                            }
-                        >
-                            Envoyer
-                        </Button>
-                    </form>
                 </div>
             </div>
+            <form
+                className='w-full flex justify-between items-center '
+                onSubmit={handleSendMessage}
+            >
+                <input
+                    className='border border-border w-5/6 p-2 rounded-2xl'
+                    type='text'
+                    value={content}
+                    onChange={e => setContent(e.target.value)}
+                />
+                <Button
+                    disabled={
+                        !content.length ||
+                        content.split(' ').join('').length === 0
+                    }
+                >
+                    <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        strokeWidth={1.5}
+                        stroke='currentColor'
+                        className='size-6'
+                    >
+                        <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            d='M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5'
+                        />
+                    </svg>
+                </Button>
+            </form>
         </div>
     )
 }
