@@ -310,8 +310,8 @@ class UsersResolver {
                         Subject: 'Réinitialisation du mot de passe',
                         To: [{ Email: email, Name: user.pseudo }],
                         From: {
-                            Email: 'crazygift24@gmail.com',
-                            Name: 'CrazyGift',
+                            Email: 'mojocraft.contact@gmail.com',
+                            Name: 'EasyGift',
                         },
                         HTMLPart: message,
                     },
