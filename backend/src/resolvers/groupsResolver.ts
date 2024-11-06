@@ -26,7 +26,7 @@ import {
     createGroupDiscussions,
 } from './discussionsResolver'
 import { User } from '../entities/user'
-import { In } from 'typeorm'
+import { In, Not } from 'typeorm'
 import * as dotenv from 'dotenv'
 dotenv.config()
 
@@ -106,11 +106,18 @@ class GroupsResolver {
         return Group.find({
             where: {
                 id: In(userGroupsIds),
+                discussions: {
+                    userDiscussion: {
+                        id: Not(ctx.user.id),
+                    },
+                },
             },
             relations: [
                 'avatar',
                 'userToGroups.user.avatar',
                 'userToGroups.group',
+                'discussions.userDiscussion.userToGroups.user.avatar',
+                'discussions.users.avatar',
             ],
             order: {
                 created_at: 'DESC',

@@ -422,7 +422,7 @@ export type GetUserByTokenQuery = { __typename?: 'Query', getUserByToken: { __ty
 export type UserGroupsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UserGroupsQuery = { __typename?: 'Query', userGroups: Array<{ __typename?: 'Group', id: number, name: string, event_date?: string | null, created_at: string, avatar: { __typename?: 'Avatar', id: number, name: string, url: string }, userToGroups: Array<{ __typename?: 'UserToGroup', user: { __typename?: 'User', id: number, pseudo: string, avatar?: { __typename?: 'Avatar', id: number, name: string, url: string } | null } }> }> };
+export type UserGroupsQuery = { __typename?: 'Query', userGroups: Array<{ __typename?: 'Group', id: number, name: string, event_date?: string | null, created_at: string, avatar: { __typename?: 'Avatar', id: number, name: string, url: string }, userToGroups: Array<{ __typename?: 'UserToGroup', id: number, user: { __typename?: 'User', id: number, pseudo: string, email: string, avatar?: { __typename?: 'Avatar', id: number, name: string, url: string } | null } }>, discussions: Array<{ __typename?: 'Discussion', id: number, users: Array<{ __typename?: 'User', id: number, pseudo: string, avatar?: { __typename?: 'Avatar', id: number, url: string } | null }>, userDiscussion: { __typename?: 'User', id: number, pseudo: string } }> }> };
 
 export type GetUserInfosQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1110,9 +1110,9 @@ export const UserGroupsDocument = gql`
       id
       name
       url
-      name
     }
     userToGroups {
+      id
       user {
         id
         pseudo
@@ -1121,6 +1121,22 @@ export const UserGroupsDocument = gql`
           name
           url
         }
+        email
+      }
+    }
+    discussions {
+      id
+      users {
+        id
+        pseudo
+        avatar {
+          id
+          url
+        }
+      }
+      userDiscussion {
+        id
+        pseudo
       }
     }
   }

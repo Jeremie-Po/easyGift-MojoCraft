@@ -1,8 +1,14 @@
 import { useUserData } from '@/context/userContext'
-import { GetMessagesByDisscutionQuery } from '@/graphql/generated/schema'
+import {
+    GetMessagesByDisscutionQuery,
+    useGetGroupByIdQuery,
+    useGetMessagesByDisscutionQuery,
+    useUserGroupsQuery,
+} from '@/graphql/generated/schema'
 import Image from 'next/image'
 import React from 'react'
 import { formatTimestamp } from '@/utils/date'
+import { useRouter } from 'next/router'
 
 function Message({
     message,
@@ -14,34 +20,46 @@ function Message({
         message.created_at,
         'DD/MM/YYYY HH:mm:ss'
     )
+    const router = useRouter()
+    const { groupId, discussionId } = router.query
+
     const userAvatar = message.user.avatar?.url || ''
     const currentUserId = userData?.id || ''
-
-    // border largeur message
-
-    return (
-        <div
-            className={`w-full flex ${message.user.id === parseInt(currentUserId, 10) ? 'justify-end' : 'justify-start'} px-10`}
-        >
-            <div className=' w-2/3 p-3 rounded-md relative bg-slate-100'>
-                <Image
-                    alt={`${message.user.pseudo} avtar`}
-                    src={userAvatar}
-                    width={30}
-                    height={30}
-                    className={`rounded-full absolute  ${parseInt(currentUserId, 10) === message.user.id ? '-top-3 -right-3' : '-top-3 -left-3'}`}
-                />
-                <div
-                    className={`w-full flex justify-between pt-1 ${parseInt(currentUserId, 10) === message.user.id ? 'flex-row-reverse' : ''}`}
-                >
-                    <p className='pl-1 text-sm font-semibold text-red600'>
-                        {message.user.pseudo}
-                    </p>
-                    <p className='text-sm'>{messageDate}</p>
-                </div>
-                <p className='w-full break-words text-balance'>
-                    {message.content}
+    return message.user.id === parseInt(currentUserId, 10) ? (
+        <div className={`w-full flex justify-end`}>
+            <div className='w-3/4 max-w-80 p-3 rounded-md bg-background border border-border flex flex-col gap-1'>
+                <p className='flex justify-end text-sm font-semibold text-red-600'>
+                    Moi
                 </p>
+                <div className='text-sm font-semibold'>
+                    <p>{message.content}</p>
+                </div>
+                <div className='flex justify-end text-xs'>
+                    <p>{messageDate}</p>
+                </div>
+            </div>
+        </div>
+    ) : (
+        <div className={`w-full flex justify-start`}>
+            <div className='flex items-start translate-x-2 -translate-y-4'>
+                <Image
+                    alt={`${message.user.pseudo} avatar`}
+                    src={userAvatar}
+                    width={10}
+                    height={10}
+                    className='w-10 h-10 rounded-full border-solid border-2 border-border'
+                />
+            </div>
+            <div className='w-3/4 max-w-80 p-3 rounded-md bg-foreground border border-border flex flex-col gap-1'>
+                <p className='flex justify-start text-sm font-semibold text-blue-600'>
+                    {message.user.pseudo}
+                </p>
+                <div className='text-sm font-semibold flex justify-end'>
+                    <p>{message.content}</p>
+                </div>
+                <div className='flex justify-start text-xs'>
+                    <p>{messageDate}</p>
+                </div>
             </div>
         </div>
     )
