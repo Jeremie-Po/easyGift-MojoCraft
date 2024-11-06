@@ -8,9 +8,9 @@ query UserGroups {
             id
             name
             url
-            name
         }
         userToGroups {
+            id
             user {
                 id
                 pseudo
@@ -19,6 +19,22 @@ query UserGroups {
                     name
                     url
                 }
+                email
+            }
+        }
+        discussions {
+            id
+            users {
+                id
+                pseudo
+                avatar {
+                    id
+                    url
+                }
+            }
+            userDiscussion {
+                id
+                pseudo
             }
         }
     }

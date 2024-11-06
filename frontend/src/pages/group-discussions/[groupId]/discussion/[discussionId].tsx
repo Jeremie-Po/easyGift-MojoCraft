@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import MenuDiscussions from '@/components/discussions/MenuDiscussion'
 import EspaceDiscussion from '@/components/discussions/EspaceDiscussion'
+import Discussions from '@/components/discussions/discussions'
 
 const DiscussionsPage = () => {
     const router = useRouter()
@@ -40,11 +40,8 @@ const DiscussionsPage = () => {
     return (
         <>
             <div className='absolute left-0 top-0 w-1 h-full z-10'></div>
-            <section className='w-full max-h-[93vh] h-screen flex flex-col overflow-y-auto md:flex-grow md:flex md:flex-row text-primaryMarron'>
-                <MenuDiscussions
-                    isMenuHidden={isMenuHidden}
-                    toggleMenu={toggleMenu}
-                />
+            <section className='text-primaryMarron w-full max-h-[93vh] h-screen flex flex-col overflow-y-auto md:flex-grow md:flex md:flex-row'>
+                <Discussions />
                 <EspaceDiscussion
                     isMenuHidden={isMenuHidden}
                     groupId={Number(groupId)}
