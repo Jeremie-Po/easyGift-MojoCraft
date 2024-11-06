@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import Accordion from './usersMessageAccordion'
 import Head from 'next/head'
 
-const Discussions = () => {
+const Discussions = ({ switchComponent }: any) => {
     const router = useRouter()
 
     return (
@@ -15,7 +15,7 @@ const Discussions = () => {
                     <h1 className='text-xl md:text-2xl lg:text-3xl 2xl:text-4xl font-bold'>
                         Discussion
                     </h1>
-                    <Accordion></Accordion>
+                    <Accordion switchComponent={switchComponent}></Accordion>
                 </section>
             </div>
         </>

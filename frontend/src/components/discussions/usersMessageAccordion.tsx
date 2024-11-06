@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Group } from '@/components/GroupCard'
 import { useRouter } from 'next/router'
 
-export default function Accordion() {
+export default function Accordion({ switchComponent }: any) {
     const router = useRouter()
     const { groupId, discussionId } = router.query
 
@@ -90,6 +90,7 @@ export default function Accordion() {
                                 <Link
                                     href={`/group-discussions/${event.id}/discussion/${item.id}`}
                                     className={`flex w-full justify-between items-center hover:bg-border ${chatId === item.id ? 'bg-border' : ''}`}
+                                    onClick={switchComponent}
                                 >
                                     <div className='p-4'>
                                         {item.id} Discussion pour{' '}

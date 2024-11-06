@@ -11,12 +11,7 @@ import { useRouter } from 'next/router'
 import { useIntersectionObserver } from '@/hook/useIntersectionObserver'
 import { Button } from '../ui/button'
 
-const EspaceDiscussion = ({
-    isMenuHidden,
-}: {
-    isMenuHidden: boolean
-    groupId: number
-}) => {
+const EspaceDiscussion = ({}: { groupId: number }) => {
     const router = useRouter()
     const { discussionId } = router.query
     const { userData } = useUserData()
@@ -161,10 +156,10 @@ const EspaceDiscussion = ({
 
     return (
         <div
-            className={`hidden md:w-7/12 md:flex md:flex-grow md:justify-center md:items-center transition-all duration-1000 ease-in-out ${isMenuHidden ? 'md:w-full' : 'md:w-12/12'}`}
+            className={`hidden md:w-7/12 md:flex md:flex-grow md:justify-center md:items-center transition-all duration-1000 ease-in-out}`}
         >
             <div
-                className={`hidden h-full md:w-7/12 md:flex md:flex-grow md:justify-center md:items-center transition-all duration-1000 ease-in-out ${isMenuHidden ? 'md:w-full' : 'md:w-12/12'}`}
+                className={`hidden h-full md:w-7/12 md:flex md:flex-grow md:justify-center md:items-center transition-all duration-1000 ease-in-out`}
             >
                 <div className='w-full h-full relative mx-10 p-3 rounded-lg'>
                     <ul
