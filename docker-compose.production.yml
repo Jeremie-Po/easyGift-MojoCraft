@@ -27,6 +27,7 @@ services:
       SITE_URL: ${SITE_URL:-production}
       EMAIL_FROM: crazygift24@gmail.com
       CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS:-changeme}
+      NEXT_PUBLIC_APOLLO_URI: ${NEXT_PUBLIC_APOLLO_URI:-changeme}
     stop_grace_period: 0s
     depends_on:
       db:
