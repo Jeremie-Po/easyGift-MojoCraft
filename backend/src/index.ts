@@ -2,7 +2,10 @@ import 'reflect-metadata'
 import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@apollo/server/express4'
 import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer'
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
+import {
+    ApolloServerPluginLandingPageLocalDefault,
+    ApolloServerPluginLandingPageProductionDefault,
+} from '@apollo/server/plugin/landingPage/default'
 import schema from './schema'
 import db from './db'
 import express from 'express'
@@ -56,6 +59,11 @@ schema.then(async schema => {
                     }
                 },
             },
+            ApolloServerPluginLandingPageProductionDefault({
+                embed: true,
+                graphRef: 'my-graph-id@my-graph-variant',
+                footer: false,
+            }),
         ],
     })
 
@@ -101,4 +109,5 @@ schema.then(async schema => {
 
     await new Promise<void>(resolve => httpServer.listen({ port }, resolve))
     console.log(`graphql server listening on http://localhost:${port}/}`)
+    console.log('HHHHTTTTPPPPSERVER', httpServer)
 })
