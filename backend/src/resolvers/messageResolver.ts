@@ -33,6 +33,24 @@ class MessageResolver {
 
         return messages
     }
+    @Query(() => [Message])
+    async getMessagesByDiscussion(
+        @Arg('discussionId') discussionId: number,
+        @Arg('limit', () => Int, { defaultValue: 10 }) limit: number,
+        @Arg('offset', () => Int, { defaultValue: 0 }) offset: number
+    ): Promise<Message[]> {
+        const messages = await Message.find({
+            where: { discussion: { id: discussionId } },
+            order: { created_at: 'DESC' },
+            relations: ['user', 'user.avatar'],
+            take: limit,
+            skip: offset,
+        })
+
+        messages.reverse()
+
+        return messages
+    }
 
     @Mutation(() => Message)
     async createMessage(
