@@ -10,9 +10,14 @@ const httpLink = new HttpLink({
     uri: uri || '/graphql',
     credentials: 'include',
 })
+const wsUrl =
+    process.env.NODE_ENV === 'production'
+        ? `wss://${window.location.host}/subscriptions` // Utilise le domaine actuel
+        : 'ws://localhost:4001/subscriptions'
+
 const wsLink = new GraphQLWsLink(
     createClient({
-        url: 'ws://localhost:4001/subscriptions',
+        url: wsUrl,
     })
 )
 
