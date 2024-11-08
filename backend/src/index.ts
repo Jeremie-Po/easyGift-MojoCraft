@@ -68,7 +68,6 @@ schema.then(async schema => {
                 'https://studio.apollographql.com',
                 'https://staging.0923-bleu-3.wns.wilders.dev/',
                 'http://localhost:4001',
-                'https://easygift.mojocraft.fr',
             ],
             credentials: true,
         }),
