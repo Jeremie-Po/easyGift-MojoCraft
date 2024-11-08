@@ -67,6 +67,8 @@ schema.then(async schema => {
                 'http://localhost:3000',
                 'https://studio.apollographql.com',
                 'https://staging.0923-bleu-3.wns.wilders.dev/',
+                'http://localhost:4001',
+                'https://easygift.mojocraft.fr',
             ],
             credentials: true,
         }),
