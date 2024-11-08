@@ -4,18 +4,17 @@ import { getMainDefinition } from '@apollo/client/utilities'
 import { createClient } from 'graphql-ws'
 require('dotenv').config()
 
-const devApiUrl = process.env.NEXT_PUBLIC_APOLLO_URI
+const uri = process.env.NEXT_PUBLIC_APOLLO_URI
 
-const wsUrl = 'ws://localhost:4001'
-const wsLink = new GraphQLWsLink(
-    createClient({
-        url: wsUrl!,
-    })
-)
 const httpLink = new HttpLink({
-    uri: devApiUrl ? devApiUrl : '/graphql',
+    uri: uri || '/graphql',
     credentials: 'include',
 })
+const wsLink = new GraphQLWsLink(
+    createClient({
+        url: 'ws://localhost:4001/subscriptions',
+    })
+)
 
 const splitLink = split(
     ({ query }) => {
@@ -30,13 +29,9 @@ const splitLink = split(
 )
 
 const client = new ApolloClient({
+    uri: uri || '/graphql',
     link: splitLink,
     cache: new InMemoryCache(),
-    defaultOptions: {
-        watchQuery: {
-            nextFetchPolicy: 'cache-and-network',
-        },
-    },
+    credentials: 'include',
 })
-
 export default client

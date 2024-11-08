@@ -35,7 +35,7 @@ const httpServer = http.createServer(app)
 
 const wsServer = new WebSocketServer({
     server: httpServer,
-    path: '/graphql',
+    path: '/subscriptions',
 })
 
 schema.then(async schema => {
@@ -47,7 +47,6 @@ schema.then(async schema => {
         cache: 'bounded',
         plugins: [
             ApolloServerPluginDrainHttpServer({ httpServer }),
-            ApolloServerPluginLandingPageLocalDefault({ embed: true }),
             {
                 async serverWillStart() {
                     return {

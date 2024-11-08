@@ -38,25 +38,29 @@ const EspaceDiscussion = ({
         ? parseInt(discussionId as string, 10)
         : null
 
-    const { data, fetchMore, refetch } = useGetMessagesByDisscutionQuery({
-        variables: {
-            discussionId: selectedDiscussionId || 0,
-            limit,
-            offset,
-        },
-        onCompleted: data => {
-            if (data.getMessagesByDisscution.length === 0)
-                return setCanGetMore(false)
-            setCanGetMore(true)
-        },
-        fetchPolicy: 'network-only',
-    })
+    const { data, fetchMore, refetch, subscribeToMore } =
+        useGetMessagesByDisscutionQuery({
+            variables: {
+                discussionId: selectedDiscussionId || 0,
+                limit,
+                offset,
+            },
+            onCompleted: data => {
+                if (data.getMessagesByDisscution.length === 0)
+                    return setCanGetMore(false)
+                setCanGetMore(true)
+            },
+            fetchPolicy: 'network-only',
+        })
 
     const { data: subscriptionData } = useAddNewMessageSubscription({
         variables: {
             discussionId: selectedDiscussionId || 0,
         },
     })
+    console.log('subscriptiondata', data)
+    console.log('discussionId', discussionId)
+    console.log('MESSAGES', messages)
 
     useEffect(() => {
         if (data?.getMessagesByDisscution && !subscriptionData?.newMessage) {
@@ -159,7 +163,6 @@ const EspaceDiscussion = ({
         refetch()
     }, [refetch, selectedDiscussionId])
 
-    console.log('MESSAGES', messages)
     return (
         <div
             className={'flex flex-col justify-center items-center w-full gap-3'}
