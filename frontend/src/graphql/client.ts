@@ -12,7 +12,7 @@ const httpLink = new HttpLink({
 })
 const wsLink = new GraphQLWsLink(
     createClient({
-        url: 'ws://easygift.mojocraft.fr/subscriptions',
+        url: 'ws://localhost:4001/subscriptions',
     })
 )
 
