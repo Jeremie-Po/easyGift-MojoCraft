@@ -40,7 +40,7 @@ services:
   frontend:
     environment:
       SECRET_KEY: ${SECRET_KEY:-changeme}
-      NEXT_PUBLIC_GRAPHQL_API_URL: ${http://localhost:4001}
+      NEXT_PUBLIC_APOLLO_URI: ${NEXT_PUBLIC_APOLLO_URI:-chengeme}
     stop_grace_period: 0s
     # build:
     #   context: frontend
