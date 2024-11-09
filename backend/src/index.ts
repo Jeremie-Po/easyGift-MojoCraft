@@ -44,6 +44,7 @@ schema.then(async schema => {
         schema,
         csrfPrevention: true,
         cache: 'bounded',
+        introspection: true,
         plugins: [
             ApolloServerPluginDrainHttpServer({ httpServer }),
             {
