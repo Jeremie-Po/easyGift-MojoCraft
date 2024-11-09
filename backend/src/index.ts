@@ -47,10 +47,10 @@ schema.then(async schema => {
         cache: 'bounded',
         introspection: true, // Important pour permettre l'introspection en production
         plugins: [
-            ApolloServerPluginLandingPageLocalDefault({
-                embed: true,
-                includeCookies: true, // Important si vous utilisez des cookies pour l'auth
-            }),
+            // ApolloServerPluginLandingPageLocalDefault({
+            //     embed: true,
+            //     includeCookies: true, // Important si vous utilisez des cookies pour l'auth
+            // }),
             ApolloServerPluginDrainHttpServer({ httpServer }),
             {
                 async serverWillStart() {
