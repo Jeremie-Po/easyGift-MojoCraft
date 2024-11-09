@@ -12,7 +12,7 @@ const httpLink = new HttpLink({
 })
 const wsUrl =
     process.env.NODE_ENV === 'production'
-        ? `wss://${window.location.host}/subscriptions` // Utilise le domaine actuel
+        ? `wss://localhost:4001/subscriptions` // Utilise le domaine actuel
         : 'ws://localhost:4001/subscriptions'
 
 const wsLink = new GraphQLWsLink(
