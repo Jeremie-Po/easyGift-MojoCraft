@@ -14,6 +14,7 @@ import { User } from './entities/user'
 import { findUserByEmail } from './resolvers/usersResolver'
 import { WebSocketServer } from 'ws'
 import { useServer } from 'graphql-ws/lib/use/ws'
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 
 dotenv.config()
 
@@ -44,7 +45,12 @@ schema.then(async schema => {
         schema,
         csrfPrevention: true,
         cache: 'bounded',
+        introspection: true, // Important pour permettre l'introspection en production
         plugins: [
+            ApolloServerPluginLandingPageLocalDefault({
+                embed: true,
+                includeCookies: true, // Important si vous utilisez des cookies pour l'auth
+            }),
             ApolloServerPluginDrainHttpServer({ httpServer }),
             {
                 async serverWillStart() {
@@ -66,7 +72,7 @@ schema.then(async schema => {
             origin: [
                 'http://localhost:3000',
                 'https://studio.apollographql.com',
-                'https://staging.0923-bleu-3.wns.wilders.dev/',
+                'https://esaygif.mojocraft.fr',
                 'http://localhost:4001',
             ],
             credentials: true,
