@@ -46,7 +46,7 @@ schema.then(async schema => {
     const serverCleanup = useServer({ schema }, wsServer)
     const server = new ApolloServer<MyContext>({
         schema,
-        csrfPrevention: true,
+        // csrfPrevention: true,
         cache: 'bounded',
         introspection: true,
         plugins: [
