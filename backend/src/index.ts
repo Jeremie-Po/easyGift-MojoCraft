@@ -73,37 +73,41 @@ schema.then(async schema => {
     await server.start()
 
     app.use(
-        '/',
+        '/graphql',
         cors<cors.CorsRequest>({
             origin: [
                 'http://localhost:3000',
                 'https://studio.apollographql.com',
                 'https://easygift.mojocraft.fr',
-                'https://staging.0923-bleu-3.wns.wilders.dev/',
             ],
             credentials: true,
+            methods: ['POST', 'GET', 'OPTIONS'],
+            allowedHeaders: [
+                'Content-Type',
+                'Authorization',
+                'apollo-require-preflight',
+            ],
         }),
         express.json(),
-        // expressMiddleware accepts the same arguments:
-        // an Apollo Server instance and optional configuration options
         expressMiddleware(server, {
-            context: async ({ req, res }) => {
+            context: async ({ req, res }): Promise<MyContext> => {
                 let user: User | null = null
 
-                const cookies = new Cookies(req, res)
-                const token = cookies.get('token')
+                try {
+                    const cookies = new Cookies(req, res)
+                    const token = cookies.get('token')
 
-                if (token) {
-                    try {
+                    if (token) {
                         const verify = await jwtVerify<Payload>(
                             token,
                             new TextEncoder().encode(process.env.SECRET_KEY)
                         )
                         user = await findUserByEmail(verify.payload.email)
-                    } catch (error) {
-                        console.error('Error during JWT verification, ', error)
                     }
+                } catch (error) {
+                    console.error('Error during authentication:', error)
                 }
+
                 return { req, res, user }
             },
         })
