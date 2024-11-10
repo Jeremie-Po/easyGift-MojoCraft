@@ -46,7 +46,7 @@ schema.then(async schema => {
     const serverCleanup = useServer({ schema }, wsServer)
     const server = new ApolloServer<MyContext>({
         schema,
-        // csrfPrevention: true,
+        csrfPrevention: true,
         cache: 'bounded',
         introspection: true,
         plugins: [
@@ -78,6 +78,7 @@ schema.then(async schema => {
             origin: [
                 'http://localhost:3000',
                 'https://studio.apollographql.com',
+                'https://easygift.mojocraft.fr',
                 'https://staging.0923-bleu-3.wns.wilders.dev/',
             ],
             credentials: true,
