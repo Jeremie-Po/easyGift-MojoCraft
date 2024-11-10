@@ -14,6 +14,8 @@ import { User } from './entities/user'
 import { findUserByEmail } from './resolvers/usersResolver'
 import { WebSocketServer } from 'ws'
 import { useServer } from 'graphql-ws/lib/use/ws'
+import { ApolloServerPluginLandingPageDisabled } from '@apollo/server/plugin/disabled'
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/dist/esm/plugin/landingPage/default'
 
 dotenv.config()
 
@@ -47,6 +49,12 @@ schema.then(async schema => {
         introspection: true,
         plugins: [
             ApolloServerPluginDrainHttpServer({ httpServer }),
+            process.env.NODE_ENV === 'production'
+                ? ApolloServerPluginLandingPageDisabled()
+                : ApolloServerPluginLandingPageLocalDefault({
+                      embed: true,
+                      includeCookies: true,
+                  }),
             {
                 async serverWillStart() {
                     return {
