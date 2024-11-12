@@ -40,26 +40,7 @@ const wsServer = new WebSocketServer({
 
 schema.then(async schema => {
     await db.initialize()
-    const serverCleanup = useServer(
-        {
-            schema,
-            context: async ctx => {
-                // Ajouter des logs pour le debugging
-                console.log('WS Connection attempt', {
-                    connectionParams: ctx.connectionParams,
-                    extra: ctx.extra,
-                })
-            },
-            onConnect: async ctx => {
-                console.log('Client connected to WS')
-                return true
-            },
-            onDisconnect: (ctx, code, reason) => {
-                console.log('Client disconnected from WS:', { code, reason })
-            },
-        },
-        wsServer
-    )
+    const serverCleanup = useServer({ schema }, wsServer)
     const server = new ApolloServer<MyContext>({
         schema,
         csrfPrevention: true,
