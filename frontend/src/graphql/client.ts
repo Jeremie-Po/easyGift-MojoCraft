@@ -8,12 +8,11 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 
 const httpUri = isDevelopment
     ? 'http://localhost:4001/graphql' // URL de dev
-    : process.env.NEXT_PUBLIC_APOLLO_URI ||
-      'https://easygift.mojocraft.fr/graphql' // URL de prod
+    : 'https://easygift.mojocraft.fr/graphql' // URL de prod
 
 const wsUri = isDevelopment
-    ? 'ws://localhost:4001/subscriptions'
-    : 'wss://easygift.mojocraft.fr/subscriptions'
+    ? 'ws://localhost:4001/graphql'
+    : 'wss://easygift.mojocraft.fr/graphql'
 
 const httpLink = new HttpLink({
     uri: httpUri,
@@ -28,6 +27,16 @@ const wsLink = new GraphQLWsLink(
         url: wsUri,
         connectionParams: {
             credentials: 'include',
+        },
+        retryAttempts: 3,
+        shouldRetry: error => {
+            console.log('WS connection error:', error)
+            return true
+        },
+        on: {
+            connected: () => console.log('WS Connected'),
+            error: error => console.log('WS Error:', error),
+            closed: () => console.log('WS Closed'),
         },
     })
 )

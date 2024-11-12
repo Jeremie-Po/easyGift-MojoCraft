@@ -14,6 +14,8 @@ services:
       - prodDB:/var/lib/postgresql/data
 
   backend:
+    ports:
+      - "4001:4001"
     environment:
       DB_HOST: db
       DB_PASS: ${DB_PASS-postgres}
