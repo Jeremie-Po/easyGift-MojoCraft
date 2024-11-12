@@ -38,7 +38,7 @@ const httpServer = http.createServer(app)
 
 const wsServer = new WebSocketServer({
     server: httpServer,
-    path: '/subscriptions',
+    path: '/graphql',
 })
 
 schema.then(async schema => {
