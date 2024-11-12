@@ -14,10 +14,7 @@ import { User } from './entities/user'
 import { findUserByEmail } from './resolvers/usersResolver'
 import { WebSocketServer } from 'ws'
 import { useServer } from 'graphql-ws/lib/use/ws'
-import {
-    ApolloServerPluginLandingPageLocalDefault,
-    ApolloServerPluginLandingPageProductionDefault,
-} from '@apollo/server/plugin/landingPage/default'
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 
 dotenv.config()
 
@@ -43,7 +40,26 @@ const wsServer = new WebSocketServer({
 
 schema.then(async schema => {
     await db.initialize()
-    const serverCleanup = useServer({ schema }, wsServer)
+    const serverCleanup = useServer(
+        {
+            schema,
+            context: async ctx => {
+                // Ajouter des logs pour le debugging
+                console.log('WS Connection attempt', {
+                    connectionParams: ctx.connectionParams,
+                    extra: ctx.extra,
+                })
+            },
+            onConnect: async ctx => {
+                console.log('Client connected to WS')
+                return true
+            },
+            onDisconnect: (ctx, code, reason) => {
+                console.log('Client disconnected from WS:', { code, reason })
+            },
+        },
+        wsServer
+    )
     const server = new ApolloServer<MyContext>({
         schema,
         csrfPrevention: true,
