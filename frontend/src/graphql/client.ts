@@ -4,20 +4,31 @@ import { getMainDefinition } from '@apollo/client/utilities'
 import { createClient } from 'graphql-ws'
 require('dotenv').config()
 
-const uri = process.env.NEXT_PUBLIC_APOLLO_URI
+const isDevelopment = process.env.NODE_ENV === 'development'
+
+const httpUri = isDevelopment
+    ? 'http://localhost:4001/graphql' // URL de dev
+    : process.env.NEXT_PUBLIC_APOLLO_URI ||
+      'https://easygift.mojocraft.fr/graphql' // URL de prod
+
+const wsUri = isDevelopment
+    ? 'ws://localhost:4001/subscriptions'
+    : 'wss://easygift.mojocraft.fr/subscriptions'
 
 const httpLink = new HttpLink({
-    uri: uri || '/graphql',
+    uri: httpUri,
     credentials: 'include',
+    headers: {
+        'Apollo-Require-Preflight': 'true',
+    },
 })
-const wsUrl =
-    process.env.NODE_ENV === 'production'
-        ? `wss://localhost:4001/subscriptions` // Utilise le domaine actuel
-        : 'ws://localhost:4001/subscriptions'
 
 const wsLink = new GraphQLWsLink(
     createClient({
-        url: wsUrl,
+        url: wsUri,
+        connectionParams: {
+            credentials: 'include',
+        },
     })
 )
 
@@ -34,9 +45,18 @@ const splitLink = split(
 )
 
 const client = new ApolloClient({
-    uri: uri || '/graphql',
     link: splitLink,
     cache: new InMemoryCache(),
     credentials: 'include',
+    defaultOptions: {
+        watchQuery: {
+            fetchPolicy: 'network-only',
+            errorPolicy: 'ignore',
+        },
+        query: {
+            fetchPolicy: 'network-only',
+            errorPolicy: 'all',
+        },
+    },
 })
 export default client
