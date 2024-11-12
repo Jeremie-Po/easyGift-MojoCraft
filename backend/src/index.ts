@@ -39,7 +39,6 @@ const wsServer = new WebSocketServer({
 })
 
 schema.then(async schema => {
-    await db.initialize()
     const serverCleanup = useServer({ schema }, wsServer)
     const server = new ApolloServer<MyContext>({
         schema,
@@ -71,6 +70,7 @@ schema.then(async schema => {
         ],
     })
 
+    await db.initialize()
     await server.start()
 
     app.use(
@@ -118,5 +118,6 @@ schema.then(async schema => {
 
     await new Promise<void>(resolve => httpServer.listen({ port }, resolve))
     console.log(`graphql server listening on http://localhost:${port}/}`)
-    console.log('HHHHTTTTPPPPSERVER', httpServer)
+    console.log('NODE_ENV:', process.env.NODE_ENV)
+    console.log('WSSSSS:', wsServer)
 })
