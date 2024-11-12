@@ -51,13 +51,17 @@ schema.then(async schema => {
         introspection: true,
         plugins: [
             ApolloServerPluginDrainHttpServer({ httpServer }),
-            process.env.NODE_ENV === 'production'
-                ? ApolloServerPluginLandingPageProductionDefault({
-                      graphRef: 'my-graph-id@current',
-                      embed: true,
-                      includeCookies: true,
-                  })
-                : ApolloServerPluginLandingPageLocalDefault({ embed: true }),
+            // process.env.NODE_ENV === 'production'
+            //     ? ApolloServerPluginLandingPageProductionDefault({
+            //           graphRef: 'my-graph-id@current',
+            //           embed: true,
+            //           includeCookies: true,
+            //       })
+            //     : ApolloServerPluginLandingPageLocalDefault({ embed: true }),
+            ApolloServerPluginLandingPageLocalDefault({
+                embed: true,
+                includeCookies: true,
+            }),
             {
                 async serverWillStart() {
                     return {
