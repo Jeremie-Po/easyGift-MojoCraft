@@ -12,7 +12,7 @@ const httpUri = isDevelopment
 
 const wsUri = isDevelopment
     ? 'ws://localhost:4001/graphql'
-    : 'wss://easygift.mojocraft.fr/graphql'
+    : 'wss://easygift.mojocraft.fr/subscription'
 
 const httpLink = new HttpLink({
     uri: httpUri,
