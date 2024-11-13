@@ -9,15 +9,19 @@ const DiscussionsPage = () => {
     const { groupId } = router.query
     const [showMessages, setShowMessages] = useState<boolean>(true)
     const [showDiscussions, setShowDiscussions] = useState<boolean>(true)
+    const [showDiscussionReturn, setShowDiscussionReturn] =
+        useState<boolean>(false)
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
     useEffect(() => {
         if (isTabletOrMobile) {
             setShowDiscussions(true)
             setShowMessages(false)
+            setShowDiscussionReturn(true)
         } else {
             setShowDiscussions(true)
             setShowMessages(true)
+            setShowDiscussionReturn(false)
         }
     }, [isTabletOrMobile])
 
@@ -29,8 +33,7 @@ const DiscussionsPage = () => {
     }
     return (
         <>
-            <div className='absolute left-0 top-0 w-1 h-full z-10'></div>
-            <section className='text-primaryMarron w-full max-h-[93vh] h-screen flex flex-col overflow-y-auto md:flex-grow md:flex md:flex-row'>
+            <section className='text-primaryMarron w-full h-screen flex flex-col md:flex-grow md:flex md:flex-row '>
                 {showDiscussions && (
                     <Discussions switchComponent={switchComponent} />
                 )}
@@ -38,6 +41,7 @@ const DiscussionsPage = () => {
                     <EspaceDiscussion
                         groupId={Number(groupId)}
                         switchComponent={switchComponent}
+                        showDiscussionReturn={showDiscussionReturn}
                     />
                 )}
                 {/*<EspaceDiscussion*/}

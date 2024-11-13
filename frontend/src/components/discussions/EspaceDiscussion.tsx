@@ -13,9 +13,11 @@ import { Button } from '../ui/button'
 
 const EspaceDiscussion = ({
     switchComponent,
+    showDiscussionReturn,
 }: {
     switchComponent: any
     groupId: number
+    showDiscussionReturn: boolean
 }) => {
     const router = useRouter()
     const { discussionId } = router.query
@@ -163,21 +165,26 @@ const EspaceDiscussion = ({
         refetch()
     }, [refetch, selectedDiscussionId])
 
+    console.log(showDiscussionReturn)
     return (
         <div
-            className={'flex flex-col justify-center items-center w-full gap-3'}
+            className={
+                'w-full my-2 flex flex-col overflow-y-auto gap-2 items-center h-5/6 lg:mt-20'
+            }
         >
-            <Button>
-                <div onClick={switchComponent}>
-                    Retour aux choix des discussions
-                </div>
-            </Button>
+            {showDiscussionReturn && (
+                <Button>
+                    <div onClick={switchComponent}>
+                        Retour aux choix des discussions
+                    </div>
+                </Button>
+            )}
             <div
-                className={`bg-bgNav flex justify-center items-center w-11/12 h-full border border-border rounded-2xl`}
+                className={`bg-bgNav flex justify-center items-center w-11/12 h-5/6 lg:h-3/4 border border-border rounded-2xl`}
             >
-                <div className='flex flex-col rounded-lg w-11/12'>
+                <div className='flex flex-col rounded-lg w-11/12 h-full py-5'>
                     <ul
-                        className=''
+                        className='overflow-y-auto h-full'
                         //@ts-ignore
                         ref={messagesContainerRef}
                     >
@@ -197,7 +204,7 @@ const EspaceDiscussion = ({
                 </div>
             </div>
             <form
-                className='w-full flex justify-between items-center '
+                className='w-11/12 flex justify-between items-center '
                 onSubmit={handleSendMessage}
             >
                 <input
