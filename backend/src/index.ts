@@ -84,6 +84,7 @@ schema.then(async schema => {
         cors<cors.CorsRequest>({
             origin: [
                 'http://localhost:3000',
+                'http://localhost:4001',
                 'https://studio.apollographql.com',
                 'https://easygift.mojocraft.fr',
             ],
