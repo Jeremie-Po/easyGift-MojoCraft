@@ -1,20 +1,23 @@
 import 'reflect-metadata'
 import { ApolloServer } from '@apollo/server'
 import { expressMiddleware } from '@apollo/server/express4'
-import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer'
 import schema from './schema'
 import db from './db'
 import express from 'express'
-import http from 'http'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import Cookies from 'cookies'
 import { jwtVerify } from 'jose'
 import { User } from './entities/user'
 import { findUserByEmail } from './resolvers/usersResolver'
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
+import http from 'http'
+
+import { createServer } from 'http'
+import { ApolloServerPluginDrainHttpServer } from '@apollo/server/plugin/drainHttpServer'
+import { makeExecutableSchema } from '@graphql-tools/schema'
 import { WebSocketServer } from 'ws'
 import { useServer } from 'graphql-ws/lib/use/ws'
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default'
 
 dotenv.config()
 
@@ -31,11 +34,11 @@ export interface Payload {
 const port = 4001
 
 const app = express()
-const httpServer = http.createServer(app)
-
+const httpServer = createServer(app)
 const wsServer = new WebSocketServer({
     server: httpServer,
     path: '/graphql',
+    // path: '/subscriptions',
 })
 
 schema.then(async schema => {

@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@radix-ui/react-separator": "^1.0.3"
+    "@graphql-tools/schema": "^10.0.7",
+    "@radix-ui/react-separator": "^1.0.3",
+    "graphql-ws": "^5.16.0",
+    "ws": "^8.18.0"
   }
 }
