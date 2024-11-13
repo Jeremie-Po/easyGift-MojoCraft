@@ -35,11 +35,14 @@ const port = 4001
 
 const app = express()
 const httpServer = createServer(app)
+
+console.log('Initialisation du serveur WebSocket...')
 const wsServer = new WebSocketServer({
     server: httpServer,
     path: '/graphql',
     // path: '/subscriptions',
 })
+console.log('WebSocketServer initialisé avec succès.')
 
 schema.then(async schema => {
     const serverCleanup = useServer({ schema }, wsServer)
