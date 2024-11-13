@@ -45,7 +45,27 @@ const wsServer = new WebSocketServer({
 console.log('WebSocketServer initialisé avec succès.')
 
 schema.then(async schema => {
-    const serverCleanup = useServer({ schema }, wsServer)
+    const serverCleanup = useServer(
+        {
+            schema,
+            onConnect: ctx => {
+                console.log(
+                    `[${new Date().toISOString()}] WebSocket connection established`
+                )
+            },
+            onSubscribe: (ctx, msg) => {
+                console.log(
+                    `[${new Date().toISOString()}] Subscription started: ${msg.payload.operationName}`
+                )
+            },
+            onDisconnect: ctx => {
+                console.log(
+                    `[${new Date().toISOString()}] WebSocket connection closed`
+                )
+            },
+        },
+        wsServer
+    )
     const server = new ApolloServer<MyContext>({
         schema,
         csrfPrevention: true,
